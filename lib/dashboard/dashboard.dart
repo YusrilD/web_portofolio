@@ -1,0 +1,22 @@
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:web_portofolio/dashboard/dashboard_mobile.dart';
+import 'package:web_portofolio/dashboard/dashboard_tab.dart';
+import 'package:web_portofolio/dashboard/dashboard_web.dart';
+import 'package:web_portofolio/source/responsive.dart';
+import 'package:web_portofolio/source/spacer_extension.dart';
+
+class Dashboard extends StatelessWidget {
+  const Dashboard({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return const Scaffold(
+      body: Responsive(
+        mobile: DashboardMobile(),
+        tablet: DashboardWeb(),
+        web: DashboardWeb(),
+      ),
+    );
+  }
+}

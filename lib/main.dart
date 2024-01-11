@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:web_portofolio/dashboard.dart';
+import 'package:web_portofolio/dashboard/dashboard.dart';
 
 void main() {
   runApp(const MyApp());
