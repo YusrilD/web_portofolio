@@ -1,4 +1,4 @@
 const String longGreeting =
-    "Welcome to my digital space! I'm a Flutter app developer who creates seamless, visually stunning, and feature-rich mobile experiences. Let's elevate your digital presence by transforming your ideas into captivating, user-friendly applications. Join me on an innovative journey for your unique needs!";
+    "Hey semua! Saya adalah seorang pengembang aplikasi Flutter yang siap membantu Anda bikin aplikasi keren! Pengen tau karya-karya saya? Cek portofolio saya di bawah ya. Selain itu, saya juga bisa bantu bikin dokumentasi, desain UI/UX yang kece, dan manual-testing. Ayo kita bikin aplikasi impianmu jadi kenyataan!";
 const String shortGreeting =
-    "Welcome to my digital space! I create sleek, feature-packed Flutter apps tailored to your unique needs. Let's elevate your digital presence together!";
+    "Hi semua! Saya pengembang aplikasi Flutter. Cek portofolio saya di bawah ya. Bisa bantu bikin aplikasi, dokumentasi, desain UI/UX, dan manual-tesing. Yuk bikin aplikasi impianmu jadi nyata!";

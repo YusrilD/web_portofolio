@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:web_portofolio/dashboard/reusable.dart';
 import 'package:web_portofolio/source/buttons.dart';
 import 'package:web_portofolio/source/spacer_extension.dart';
-
+import 'dart:html' as html;
 import '../source/config.dart';
 import '../source/custom_banner.dart';
 
@@ -49,9 +50,21 @@ class DashboardWeb extends StatelessWidget {
                       16.0.spaceY,
                       Row(
                         children: [
-                          ReusableButton().outlinedButton(text: "Hire Me"),
+                          ReusableButton().outlinedButton(
+                              text: "Hire Me",
+                              onPress: () {
+                                launchUrl(
+                                    Uri.parse(
+                                        'https://wa.me/6285890645024?text=Hallo, mau tanya jasa pembuatan aplikasi mobile'),
+                                    mode: LaunchMode.externalApplication);
+                              }),
                           8.0.spaceX,
-                          ReusableButton().roundedButton(text: "See My Resume"),
+                          ReusableButton().roundedButton(
+                              text: "Portfolio",
+                              onPress: () {
+                                html.window.open("assets/yusril_portfolio.pdf",
+                                    "yusril_portfolio.pdf");
+                              }),
                         ],
                       ),
                     ],
