@@ -56,7 +56,8 @@ class DashboardMobile extends StatelessWidget {
                           child: ReusableButton().roundedButton(
                               text: "Portfolio",
                               onPress: () {
-                                html.window.open("assets/yusril_portfolio.pdf",
+                                html.window.open(
+                                    "https://yusrildewantara.000webhostapp.com/assets/assets/yusril_portfolio.pdf",
                                     "yusril_portfolio.pdf");
                               }),
                         )

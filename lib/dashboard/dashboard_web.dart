@@ -30,14 +30,7 @@ class DashboardWeb extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        "Hi, I am",
-                        style: GoogleFonts.poppins(
-                          fontSize: 14,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                      Text(
-                        "Yusril",
+                        "Hi, I am Yusril Dewantara",
                         style: GoogleFonts.poppins(
                           fontSize: 50,
                           fontWeight: FontWeight.w700,
@@ -51,18 +44,22 @@ class DashboardWeb extends StatelessWidget {
                       Row(
                         children: [
                           ReusableButton().outlinedButton(
-                              text: "Hire Me",
-                              onPress: () {
-                                launchUrl(
-                                    Uri.parse(
-                                        'https://wa.me/6285890645024?text=Hallo, mau tanya jasa pembuatan aplikasi mobile'),
-                                    mode: LaunchMode.externalApplication);
-                              }),
+                            text: "Hire Me",
+                            onPress: () {
+                              launchUrl(
+                                Uri.parse(
+                                  'https://wa.me/6285890645024?text=Hallo, mau tanya jasa pembuatan aplikasi mobile',
+                                ),
+                                mode: LaunchMode.externalApplication,
+                              );
+                            },
+                          ),
                           8.0.spaceX,
                           ReusableButton().roundedButton(
                               text: "Portfolio",
                               onPress: () {
-                                html.window.open("assets/yusril_portfolio.pdf",
+                                html.window.open(
+                                    "https://yusrildewantara.000webhostapp.com/assets/assets/yusril_portfolio.pdf",
                                     "yusril_portfolio.pdf");
                               }),
                         ],
