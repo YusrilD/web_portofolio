@@ -59,7 +59,7 @@ class DashboardWeb extends StatelessWidget {
                               text: "Portfolio",
                               onPress: () {
                                 html.window.open(
-                                    "https://yusrildewantara.000webhostapp.com/assets/assets/yusril_portfolio.pdf",
+                                    "https://yusrildewantara.tech/assets/assets/yusril_portfolio.pdf",
                                     "yusril_portfolio.pdf");
                               }),
                         ],
