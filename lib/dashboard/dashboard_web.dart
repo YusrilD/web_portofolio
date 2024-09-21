@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:web_portofolio/controller/social_media_controller.dart';
 import 'package:web_portofolio/dashboard/reusable.dart';
+import 'package:web_portofolio/model/social_media_model.dart';
 import 'package:web_portofolio/source/buttons.dart';
-import 'package:web_portofolio/source/image.dart';
 import 'package:web_portofolio/source/spacer_extension.dart';
 import 'dart:html' as html;
 import '../source/config.dart';
@@ -13,12 +15,7 @@ import '../source/custom_banner.dart';
 class DashboardWeb extends StatelessWidget {
   DashboardWeb({Key? key}) : super(key: key);
 
-  List<String> listSocial = [
-    ImgSrc.iconSocialWhatsapp,
-    ImgSrc.iconSocialWhatsapp,
-    ImgSrc.iconSocialWhatsapp,
-    ImgSrc.iconSocialWhatsapp,
-  ];
+  final socialMediaC = Get.put(SocialMediaController());
 
   @override
   Widget build(BuildContext context) {
@@ -88,10 +85,13 @@ class DashboardWeb extends StatelessWidget {
                           ),
                           Row(
                             children: [
-                              for (int i = 0; i < listSocial.length; i++)
+                              for (int i = 0;
+                                  i < socialMediaC.socialMediaList.length;
+                                  i++)
                                 item(
-                                  listSocial[i],
-                                ),
+                                  context,
+                                  socialMediaC.socialMediaList[i],
+                                ).paddingSymmetric(horizontal: 4),
                             ],
                           ),
                         ],
@@ -110,17 +110,65 @@ class DashboardWeb extends StatelessWidget {
     );
   }
 
-  Widget item(String img) {
-    return SizedBox(
-      height: 20,
-      width: 20,
-      child: DecoratedBox(
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: ExactAssetImage(img),
-            fit: BoxFit.cover,
+  Widget item(BuildContext context, SocialMedia social) {
+    return InkWell(
+      onTap: () {
+        print("${social.tooltip} is clicked");
+      },
+      child: Column(
+        children: [
+          Tooltip(
+            message: social.tooltip,
+            child: SizedBox(
+              height: 20,
+              width: 20,
+              child: DecoratedBox(
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: ExactAssetImage(social.imgUrl!),
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
+            ),
           ),
-        ),
+          if (social.submenu != null)
+            DecoratedBox(
+              decoration: BoxDecoration(
+                  color: Colors.grey, borderRadius: BorderRadius.circular(15)),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  for (var submenuitem in social.submenu!)
+                    Column(
+                      children: [
+                        DecoratedBox(
+                          decoration: BoxDecoration(
+                            border: Border(
+                              bottom: BorderSide(
+                                width: 1,
+                                color: (social.submenu!.indexOf(submenuitem) !=
+                                        social.submenu!.length - 1)
+                                    ? Colors.black
+                                    : Colors.transparent,
+                              ),
+                            ),
+                          ),
+                          child: Text(
+                            submenuitem.name!,
+                          ).paddingSymmetric(
+                            vertical: 4,
+                          ),
+                        ),
+                      ],
+                    ),
+                ],
+              ).paddingSymmetric(
+                horizontal: 8,
+                vertical: 4,
+              ),
+            ),
+        ],
       ),
     );
   }
