@@ -1,10 +1,12 @@
 class Submenu {
   final int? id;
   final String? name;
+  final Function()? onPress;
 
   Submenu({
     this.id,
     this.name,
+    this.onPress,
   });
 
   factory Submenu.fromJson(Map<String, dynamic> json) {

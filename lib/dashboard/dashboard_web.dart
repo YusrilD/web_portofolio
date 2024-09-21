@@ -63,7 +63,7 @@ class DashboardWeb extends StatelessWidget {
                           Row(
                             children: [
                               ReusableButton().outlinedButton(
-                                text: "Hire Me",
+                                text: "Portfolio",
                                 onPress: () {
                                   launchUrl(
                                     Uri.parse(
@@ -111,13 +111,18 @@ class DashboardWeb extends StatelessWidget {
   }
 
   Widget item(BuildContext context, SocialMedia social) {
-    return InkWell(
-      onTap: () {
-        print("${social.tooltip} is clicked");
-      },
-      child: Column(
-        children: [
-          Tooltip(
+    return MenuAnchor(
+      builder:
+          (BuildContext context, MenuController controller, Widget? child) {
+        return InkWell(
+          onTap: () {
+            if (controller.isOpen) {
+              controller.close();
+            } else {
+              controller.open();
+            }
+          },
+          child: Tooltip(
             message: social.tooltip,
             child: SizedBox(
               height: 20,
@@ -132,43 +137,32 @@ class DashboardWeb extends StatelessWidget {
               ),
             ),
           ),
-          if (social.submenu != null)
-            DecoratedBox(
-              decoration: BoxDecoration(
-                  color: Colors.grey, borderRadius: BorderRadius.circular(15)),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  for (var submenuitem in social.submenu!)
-                    Column(
-                      children: [
-                        DecoratedBox(
-                          decoration: BoxDecoration(
-                            border: Border(
-                              bottom: BorderSide(
-                                width: 1,
-                                color: (social.submenu!.indexOf(submenuitem) !=
-                                        social.submenu!.length - 1)
-                                    ? Colors.black
-                                    : Colors.transparent,
-                              ),
-                            ),
-                          ),
-                          child: Text(
-                            submenuitem.name!,
-                          ).paddingSymmetric(
-                            vertical: 4,
-                          ),
-                        ),
-                      ],
-                    ),
-                ],
-              ).paddingSymmetric(
-                horizontal: 8,
-                vertical: 4,
-              ),
+        ).paddingSymmetric(
+          vertical: 8,
+        );
+      },
+      style: MenuStyle(
+        backgroundColor: const WidgetStatePropertyAll(Colors.white),
+        side: const WidgetStatePropertyAll(
+          BorderSide(
+            color: Colors.black,
+            width: 1,
+          ),
+        ),
+        shape: WidgetStatePropertyAll(
+          RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(
+              15,
             ),
-        ],
+          ),
+        ),
+      ),
+      menuChildren: List<MenuItemButton>.generate(
+        social.submenu != null ? social.submenu!.length : 0,
+        (int index) => MenuItemButton(
+          onPressed: social.submenu![index].onPress,
+          child: Text(social.submenu![index].name!),
+        ),
       ),
     );
   }

@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:web_portofolio/source/image.dart';
 
 import '../model/social_media_model.dart';
@@ -10,8 +11,18 @@ class SocialMediaController extends GetxController {
       name: "Whatsapp",
       tooltip: "Whatsapp",
       submenu: [
-        Submenu(id: 1, name: "Scan QR Code"),
-        Submenu(id: 2, name: "Chat Now!"),
+        Submenu(id: 1, name: "Scan QR Code", onPress: () {}),
+        Submenu(
+            id: 2,
+            name: "Chat Now!",
+            onPress: () {
+              launchUrl(
+                Uri.parse(
+                  'https://wa.me/6285890645024?text=Hallo, mau tanya jasa pembuatan aplikasi',
+                ),
+                mode: LaunchMode.externalApplication,
+              );
+            }),
       ],
       imgUrl: ImgSrc.iconSocialWhatsapp,
     ),
@@ -34,6 +45,4 @@ class SocialMediaController extends GetxController {
       imgUrl: ImgSrc.iconSocialTwitter,
     ),
   ];
-
-  
 }
