@@ -8,9 +8,9 @@ class Dashboard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: Responsive(
-        mobile: DashboardMobile(),
+        mobile: const DashboardMobile(),
         tablet: DashboardWeb(),
         web: DashboardWeb(),
       ),
