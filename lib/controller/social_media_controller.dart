@@ -22,13 +22,12 @@ class SocialMediaController extends GetxController {
               Get.context!,
               title: "QR Code to whatsapp",
               confirmationText: "",
-              onConfirm: () {},
-              onCancel: () {
-                Get.back();
-              },
+              cancelText: "Tutup",
+              isNeedConfirm: false,
+              textAlign: TextAlign.center,
               widget: Column(
                 children: [
-                  Text("Scan QR code dan arahkan ke web browser"),
+                  const Text("Scan QR code dan arahkan ke web browser"),
                   Expanded(
                     child: Image.asset(
                       AppImages.waQrImage,
@@ -40,16 +39,17 @@ class SocialMediaController extends GetxController {
           },
         ),
         Submenu(
-            id: 2,
-            name: "Chat Now!",
-            onPress: () {
-              launchUrl(
-                Uri.parse(
-                  'https://wa.me/6285890645024?text=Hallo, mau tanya jasa pembuatan aplikasi',
-                ),
-                mode: LaunchMode.externalApplication,
-              );
-            }),
+          id: 2,
+          name: "Chat Now!",
+          onPress: () {
+            launchUrl(
+              Uri.parse(
+                'https://wa.me/6285890645024?text=Hallo, mau tanya jasa pembuatan aplikasi',
+              ),
+              mode: LaunchMode.externalApplication,
+            );
+          },
+        ),
       ],
       imgUrl: AppImages.whatsappIcon,
     ),
@@ -58,18 +58,43 @@ class SocialMediaController extends GetxController {
       name: "Github",
       tooltip: "Github",
       imgUrl: AppImages.githubIcon,
+      onPress: () {
+        print("github does clicked");
+        launchUrl(
+          Uri.parse(
+            'https://github.com/YusrilD',
+          ),
+          mode: LaunchMode.externalApplication,
+        );
+      },
     ),
     SocialMedia(
       id: 3,
       name: "Instagram",
       tooltip: "Instagram",
       imgUrl: AppImages.instagramIcon,
+      onPress: () {
+        launchUrl(
+          Uri.parse(
+            'https://www.instagram.com/yusrildee?igsh=MTFzZXQwMTJ1OGU2ZQ==',
+          ),
+          mode: LaunchMode.externalApplication,
+        );
+      },
     ),
     SocialMedia(
       id: 4,
       name: "Twitter",
       tooltip: "Twitter",
       imgUrl: AppImages.twitterIcon,
+      onPress: () {
+        launchUrl(
+          Uri.parse(
+            'https://x.com/thedevdeva?s=09',
+          ),
+          mode: LaunchMode.externalApplication,
+        );
+      },
     ),
   ];
 }

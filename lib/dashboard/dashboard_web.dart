@@ -111,6 +111,30 @@ class DashboardWeb extends StatelessWidget {
   }
 
   Widget item(BuildContext context, SocialMedia social) {
+    if (social.onPress != null) {
+      return Tooltip(
+        message: social.tooltip,
+        child: InkWell(
+          onTap: (){
+            social.onPress!();
+          },
+          child: SizedBox(
+            height: 20,
+            width: 20,
+            child: DecoratedBox(
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: ExactAssetImage(social.imgUrl!),
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+          ),
+        ),
+      ).paddingSymmetric(
+        vertical: 8,
+      );
+    }
     return MenuAnchor(
       builder:
           (BuildContext context, MenuController controller, Widget? child) {

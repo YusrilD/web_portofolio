@@ -132,40 +132,45 @@ class CustomDialogs {
     );
   }
 
-  static void showWidgetDialog(
-    BuildContext context, {
-    String title = "",
-    String confirmationText = "Simpan",
-    String cancelText = "Batalkan",
-    Color confirmationColor = Colors.black,
-    Color cancelColor = Colors.black,
-    required Function() onConfirm,
-    required Function() onCancel,
-    required Widget widget,
-  }) {
+  static void showWidgetDialog(BuildContext context,
+      {String title = "",
+      bool isNeedConfirm = true,
+      String confirmationText = "Simpan",
+      String cancelText = "Batalkan",
+      Color confirmationColor = Colors.black,
+      Color cancelColor = Colors.black,
+      VoidCallback? onConfirm,
+      required Widget widget,
+      TextAlign? textAlign}) {
     showDialog(
       context: context,
       barrierDismissible: true,
       useRootNavigator: false,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text(title),
+          title: Text(
+            title,
+            textAlign: textAlign,
+          ),
           content: widget,
           actions: <Widget>[
             TextButton(
-              onPressed: onCancel,
+              onPressed: () {
+                Get.back();
+              },
               child: Text(
                 cancelText,
                 style: TextStyle(color: cancelColor),
               ),
             ),
-            TextButton(
-              onPressed: onConfirm,
-              child: Text(
-                confirmationText,
-                style: TextStyle(color: confirmationColor),
+            if (isNeedConfirm)
+              TextButton(
+                onPressed: onConfirm,
+                child: Text(
+                  confirmationText,
+                  style: TextStyle(color: confirmationColor),
+                ),
               ),
-            ),
           ],
         );
       },

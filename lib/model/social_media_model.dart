@@ -32,6 +32,7 @@ class SocialMedia {
   final String? tooltip;
   final List<Submenu>? submenu;
   final String? imgUrl;
+  final VoidCallback? onPress;
 
   SocialMedia({
     this.id,
@@ -39,6 +40,7 @@ class SocialMedia {
     this.tooltip,
     this.submenu,
     this.imgUrl,
+    this.onPress,
   });
 
   factory SocialMedia.fromJson(Map<String, dynamic> json) {
