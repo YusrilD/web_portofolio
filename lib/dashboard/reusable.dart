@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:web_portofolio/view/utils/app_images.dart';
 
 SizedBox avatar(double size) {
   return SizedBox(
@@ -8,7 +9,7 @@ SizedBox avatar(double size) {
       decoration: BoxDecoration(
         shape: BoxShape.circle,
         image: DecorationImage(
-          image: ExactAssetImage('assets/profile.jpg'),
+          image: ExactAssetImage(AppImages.profileImage),
         ),
       ),
     ),
@@ -18,7 +19,7 @@ SizedBox avatar(double size) {
 SizedBox customBackground() {
   return SizedBox.expand(
     child: Image.asset(
-      'assets/grad.webp',
+      AppImages.gradImage,
       fit: BoxFit.cover,
       color: Colors.white.withOpacity(0.7),
       colorBlendMode: BlendMode.hardLight,

@@ -185,7 +185,7 @@ class DashboardWeb extends StatelessWidget {
           ),
         ],
       ),
-      child: SizedBox(
+      child: const SizedBox(
         height: 500,
         width: 275,
       ),

@@ -1,8 +1,11 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:web_portofolio/source/image.dart';
+import 'package:web_portofolio/view/utils/app_images.dart';
 
 import '../model/social_media_model.dart';
+import '../view/utils/widget/custom_dialog.dart';
 
 class SocialMediaController extends GetxController {
   List<SocialMedia> socialMediaList = [
@@ -11,7 +14,31 @@ class SocialMediaController extends GetxController {
       name: "Whatsapp",
       tooltip: "Whatsapp",
       submenu: [
-        Submenu(id: 1, name: "Scan QR Code", onPress: () {}),
+        Submenu(
+          id: 1,
+          name: "Scan QR Code",
+          onPress: () {
+            CustomDialogs.showWidgetDialog(
+              Get.context!,
+              title: "QR Code to whatsapp",
+              confirmationText: "",
+              onConfirm: () {},
+              onCancel: () {
+                Get.back();
+              },
+              widget: Column(
+                children: [
+                  Text("Scan QR code dan arahkan ke web browser"),
+                  Expanded(
+                    child: Image.asset(
+                      AppImages.waQrImage,
+                    ),
+                  ),
+                ],
+              ),
+            );
+          },
+        ),
         Submenu(
             id: 2,
             name: "Chat Now!",
@@ -24,25 +51,25 @@ class SocialMediaController extends GetxController {
               );
             }),
       ],
-      imgUrl: ImgSrc.iconSocialWhatsapp,
+      imgUrl: AppImages.whatsappIcon,
     ),
     SocialMedia(
       id: 2,
       name: "Github",
       tooltip: "Github",
-      imgUrl: ImgSrc.iconSocialGithub,
+      imgUrl: AppImages.githubIcon,
     ),
     SocialMedia(
       id: 3,
       name: "Instagram",
       tooltip: "Instagram",
-      imgUrl: ImgSrc.iconSocialInstagram,
+      imgUrl: AppImages.instagramIcon,
     ),
     SocialMedia(
       id: 4,
       name: "Twitter",
       tooltip: "Twitter",
-      imgUrl: ImgSrc.iconSocialTwitter,
+      imgUrl: AppImages.twitterIcon,
     ),
   ];
 }

@@ -1,7 +1,9 @@
+import 'package:flutter/foundation.dart';
+
 class Submenu {
   final int? id;
   final String? name;
-  final Function()? onPress;
+  final VoidCallback? onPress;
 
   Submenu({
     this.id,
