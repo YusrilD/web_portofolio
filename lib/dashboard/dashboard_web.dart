@@ -4,9 +4,11 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:web_portofolio/controller/social_media_controller.dart';
 import 'package:web_portofolio/dashboard/reusable.dart';
+import 'package:web_portofolio/dashboard/web_mobile_device.dart';
 import 'package:web_portofolio/model/social_media_model.dart';
 import 'package:web_portofolio/source/buttons.dart';
 import 'package:web_portofolio/source/spacer_extension.dart';
+import 'package:web_portofolio/view/utils/app_images.dart';
 import 'dart:html' as html;
 import '../source/config.dart';
 import '../source/custom_banner.dart';
@@ -102,7 +104,9 @@ class DashboardWeb extends StatelessWidget {
                   ),
                 ),
                 16.0.spaceX,
-                _mobileDevice(),
+                Expanded(
+                  flex: 1,
+                  child: WebMobileDevice()),
               ],
             ),
           ),
@@ -189,31 +193,6 @@ class DashboardWeb extends StatelessWidget {
           onPressed: social.submenu![index].onPress,
           child: Text(social.submenu![index].name!),
         ),
-      ),
-    );
-  }
-
-  DecoratedBox _mobileDevice() {
-    return DecoratedBox(
-      decoration: BoxDecoration(
-        color: Colors.white,
-        border: Border.all(
-          width: 10,
-          color: Colors.black87,
-        ),
-        borderRadius: BorderRadius.circular(25),
-        boxShadow: const [
-          BoxShadow(
-            color: Colors.grey,
-            spreadRadius: 0.7,
-            blurRadius: 0.3,
-            offset: Offset(5, 5),
-          ),
-        ],
-      ),
-      child: const SizedBox(
-        height: 500,
-        width: 275,
       ),
     );
   }

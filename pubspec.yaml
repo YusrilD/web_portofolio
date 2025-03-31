@@ -39,6 +39,7 @@ dependencies:
   # google_fonts: ^6.1.0
   get: ^4.3.8
   url_launcher: ^6.0.20
+  model_viewer_plus: ^1.9.1
 
 dev_dependencies:
   flutter_test:
@@ -67,6 +68,7 @@ flutter:
   #   - images/a_dot_burr.jpeg
     - assets/
     - assets/icons/
+    - assets/images/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
