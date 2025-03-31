@@ -65,6 +65,16 @@ class DashboardWeb extends StatelessWidget {
                               ReusableButton().outlinedButton(
                                 text: "Portfolio",
                                 onPress: () {
+                                  html.window.open(
+                                    "https://yusrildewantara.tech/assets/assets/yusril_portfolio.pdf",
+                                    "yusril_portfolio.pdf",
+                                  );
+                                },
+                              ),
+                              8.0.spaceX,
+                              ReusableButton().roundedButton(
+                                text: "Resume",
+                                onPress: () {
                                   launchUrl(
                                     Uri.parse(
                                       'https://wa.me/6285890645024?text=Hallo, mau tanya jasa pembuatan aplikasi mobile',
@@ -73,14 +83,6 @@ class DashboardWeb extends StatelessWidget {
                                   );
                                 },
                               ),
-                              8.0.spaceX,
-                              ReusableButton().roundedButton(
-                                  text: "Resume",
-                                  onPress: () {
-                                    html.window.open(
-                                        "https://yusrildewantara.tech/assets/assets/yusril_portfolio.pdf",
-                                        "yusril_portfolio.pdf");
-                                  }),
                             ],
                           ),
                           Row(
@@ -115,7 +117,7 @@ class DashboardWeb extends StatelessWidget {
       return Tooltip(
         message: social.tooltip,
         child: InkWell(
-          onTap: (){
+          onTap: () {
             social.onPress!();
           },
           child: SizedBox(
