@@ -318,7 +318,7 @@ class _SpeedyBeeMainState extends State<SpeedyBeeMain> {
           height: mediaHeight,
           decoration: const BoxDecoration(
             borderRadius: BorderRadius.all(
-              Radius.circular(20),
+              Radius.circular(0),
             ),
             image: DecorationImage(
                 image: ExactAssetImage(AppImages.speedyBeeLogo),
@@ -329,8 +329,9 @@ class _SpeedyBeeMainState extends State<SpeedyBeeMain> {
           child: Container(
             height: mediaHeight,
             decoration: BoxDecoration(
-                color: Colors.black.withOpacity(0.7),
-                borderRadius: BorderRadius.circular(20)),
+              color: Colors.black.withOpacity(0.7),
+              // borderRadius: BorderRadius.circular(20),
+            ),
             child: Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -341,8 +342,11 @@ class _SpeedyBeeMainState extends State<SpeedyBeeMain> {
                       shape: BoxShape.circle,
                       color: Colors.white.withOpacity(0.5),
                     ),
-                    child: Image.asset(AppImages.speedyBeeMainLogo,
-                        width: mediaWidth / 3.5, height: mediaHeight / 3.5),
+                    child: Image.asset(
+                      AppImages.speedyBeeMainLogo,
+                      width: mediaWidth / 3.5,
+                      height: mediaHeight / 3.5,
+                    ),
                   ),
                   Column(
                     children: [
@@ -398,17 +402,9 @@ class _SpeedyBeeMainState extends State<SpeedyBeeMain> {
                         padding: const EdgeInsets.only(top: 10),
                         child: ElevatedButton(
                           onPressed: () {
-                            print("hadeeeeh");
                             webMobileController.selectPage(
                               Dashboard(),
                             );
-
-                            print("hadeeeeh hash");
-                            // Navigator.of(context).push(
-                            //   MaterialPageRoute(
-                            //     builder: (context) => Dashboard(),
-                            //   ),
-                            // );
                           },
                           child: FittedBox(
                             fit: BoxFit.scaleDown,
@@ -462,8 +458,8 @@ class _SpeedyBeeMainState extends State<SpeedyBeeMain> {
 
   @override
   Widget build(BuildContext context) {
-    var mediaHeight = 430; // MediaQuery.of(context).size.height;
-    var mediaWidth = 175;
+    var mediaWidth = Get.width * 0.177;
+    var mediaHeight = Get.height * 0.677;
     return _initMenu(mediaWidth, mediaHeight);
     // Scaffold(
     //   drawer: _listDrawer(mediaHeight, mediaWidth),

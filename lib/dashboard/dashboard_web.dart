@@ -38,7 +38,7 @@ class DashboardWeb extends StatelessWidget {
                     children: [
                       Row(
                         children: [
-                          avatar(100),
+                          // avatar(100),
                           16.0.spaceX,
                           Expanded(
                             child: FittedBox(

@@ -16,34 +16,28 @@ class WebMobileDevice extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        const SizedBox(
-          height: 440,
-          width: 215,
+        Align(
+          alignment: Alignment.center,
+          child: Image.asset(
+            AppImages.phoneFrameImage,
+            height: Get.height * 0.8,
+            width: Get.width * 0.6,
+          ),
         ),
-        const Positioned.fill(
+        Positioned.fill(
           child: Align(
             alignment: Alignment.center,
             child: DecoratedBox(
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 image: DecorationImage(
                   image: ExactAssetImage(AppImages.gradMobileImage),
                   fit: BoxFit.cover,
                 ),
               ),
               child: SizedBox(
-                height: 420,
-                width: 195,
+                height: Get.height * 0.677,
+                width: Get.width * 0.177,
               ),
-            ),
-          ),
-        ),
-        Positioned.fill(
-          child: Align(
-            alignment: Alignment.center,
-            child: Image.asset(
-              AppImages.phoneFrameImage,
-              height: 460,
-              width: 235,
             ),
           ),
         ),
@@ -54,8 +48,8 @@ class WebMobileDevice extends StatelessWidget {
               () {
                 if (webMobileController.isShowGrid.value) {
                   return SizedBox(
-                    height: 430,
-                    width: 205,
+                    height: Get.height * 0.7,
+                    width: Get.width * 0.15,
                     child: GridView.count(
                       physics: const NeverScrollableScrollPhysics(),
                       mainAxisSpacing: 5,
@@ -67,7 +61,8 @@ class WebMobileDevice extends StatelessWidget {
                       children: webMobileController.listIcon.map((item) {
                         return GestureDetector(
                           onTap: () {
-                            webMobileController.selectedApps.value.widget = const SpeedyBeeMain();
+                            webMobileController.selectedApps.value.widget =
+                                const SpeedyBeeMain();
                             webMobileController.isShowGrid.value = false;
                             // Get.toNamed(item.routes!);
                           },
@@ -83,8 +78,8 @@ class WebMobileDevice extends StatelessWidget {
                   );
                 }
                 return SizedBox(
-                  height: 410,
-                  width: 193,
+                  height: Get.height * 0.677,
+                  width: Get.width * 0.177,
                   child: webMobileController.selectedApps.value.widget,
                 );
               },

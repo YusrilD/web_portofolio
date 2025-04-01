@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../sub_pages/adjustment.dart';
 import '../sub_pages/black_box.dart';
@@ -308,626 +309,620 @@ class _DashboardState extends State<Dashboard> {
 
   @override
   Widget build(BuildContext context) {
-    var mediaWidth = MediaQuery.of(context).size.width;
-    var mediaHeight = MediaQuery.of(context).size.height;
-    return MaterialApp(
-      theme: ThemeData(
-        scaffoldBackgroundColor: Colors.black,
+    var mediaWidth = Get.height * 0.71;
+    var mediaHeight = Get.width * 0.15;
+    return Container(
+      decoration: const BoxDecoration(
+        color: Colors.black,
+        // borderRadius: BorderRadius.all(
+        //   Radius.circular(20),
+        // ),
       ),
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.black,
-          leading: const Padding(
-            padding: EdgeInsets.only(left: 5, right: 5),
-            child: Icon(Icons.account_circle),
-          ),
-          title: Row(
+      height: mediaHeight,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
+              const Padding(
+                padding: EdgeInsets.only(left: 5, right: 5),
+                child: Icon(Icons.account_circle),
+              ),
               Image.asset(
                 "assets/images/qrcode.png",
                 width: mediaWidth / 15,
                 height: mediaHeight / 15,
               ),
-              Image.asset(
-                "assets/images/title.jpeg",
-                color: Colors.amber,
-                width: mediaWidth / 2,
-                height: mediaHeight / 2,
+              Expanded(
+                child: Image.asset(
+                  "assets/images/title.jpeg",
+                  color: Colors.amber,
+                  // width: mediaWidth / 2,
+                  // height: mediaHeight / 2,
+                ),
               ),
               const Icon(Icons.undo)
             ],
           ),
-        ),
-        body: Container(
-          height: mediaHeight,
-          child: const FlutterLogo() 
-          // Column(
-          //   crossAxisAlignment: CrossAxisAlignment.start,
-          //   children: [
-          //     _upperMenu(mediaWidth, mediaHeight),
-          //     Expanded(
-          //       child: Container(
-          //         margin: EdgeInsets.only(top: 10),
-          //         child: Row(
-          //           children: [
-          //             Column(
-          //               children: [
-          //                 Expanded(
-          //                   child: LayoutBuilder(
-          //                     builder: (context, constraint) {
-          //                       return SingleChildScrollView(
-          //                         child: ConstrainedBox(
-          //                           constraints: BoxConstraints(
-          //                               minHeight: constraint.minHeight),
-          //                           child: IntrinsicHeight(
-          //                             child: NavigationRail(
-          //                               minWidth: 40,
-          //                               backgroundColor:
-          //                                   Colors.grey.withOpacity(0.3),
-          //                               selectedIndex: _selectedIndex,
-          //                               onDestinationSelected: (int index) {
-          //                                 setState(() {
-          //                                   _selectedIndex = index;
-          //                                 });
-          //                               },
-          //                               selectedIconTheme: IconThemeData(color: Colors.grey, size: 100),
-          //                               labelType: toggleButton == 0
-          //                                   ? NavigationRailLabelType.none
-          //                                   : NavigationRailLabelType.all,
-          //                               destinations: [
-          //                                 NavigationRailDestination(
-          //                                   icon: ImageIcon(
-          //                                     AssetImage(
-          //                                         "assets/images/setup.png"),
-          //                                     size: 20,
-          //                                     color: Colors.grey,
-          //                                   ),
-          //                                   selectedIcon: Container(
-          //                                     width: toggleButton == 0 ? 40 : 100,
-          //                                     height: 40,
-          //                                     padding: EdgeInsets.all(10),
-          //                                     margin: EdgeInsets.all(0),
-          //                                     decoration: BoxDecoration(
-          //                                       color: Colors.amber,
-          //                                     ),
-          //                                     child: ImageIcon(
-          //                                       AssetImage(
-          //                                           "assets/images/setup.png"),
-          //                                       size: 20,
-          //                                       color: Colors.grey,
-          //                                     ),
-          //                                   ),
-          //                                   label: Padding(
-          //                                     padding: EdgeInsets.only(top: 3),
-          //                                     child: Text(
-          //                                       'Setup',
-          //                                       style: TextStyle(
-          //                                         color: Colors.grey,
-          //                                         fontSize: 10,
-          //                                       ),
-          //                                     ),
-          //                                   ),
-          //                                 ),
-          //                                 NavigationRailDestination(
-          //                                   icon: ImageIcon(
-          //                                     AssetImage(
-          //                                         "assets/images/port.png"),
-          //                                     size: 20,
-          //                                     color: Colors.grey,
-          //                                   ),
-          //                                   selectedIcon: Container(
-          //                                     width: toggleButton == 0 ? 40 : 100,
-          //                                     height: 40,
-          //                                     padding: EdgeInsets.all(10),
-          //                                     decoration: BoxDecoration(
-          //                                       color: Colors.amber,
-          //                                     ),
-          //                                     child: ImageIcon(
-          //                                       AssetImage(
-          //                                           "assets/images/port.png"),
-          //                                       size: 20,
-          //                                       color: Colors.grey,
-          //                                     ),
-          //                                   ),
-          //                                   label: Padding(
-          //                                     padding: EdgeInsets.only(top: 3),
-          //                                     child: Text(
-          //                                       'Port',
-          //                                       style: TextStyle(
-          //                                           fontSize: 10,
-          //                                           color: Colors.grey),
-          //                                     ),
-          //                                   ),
-          //                                 ),
-          //                                 NavigationRailDestination(
-          //                                   icon: ImageIcon(
-          //                                     AssetImage(
-          //                                         "assets/images/config.png"),
-          //                                     size: 20,
-          //                                     color: Colors.grey,
-          //                                   ),
-          //                                   selectedIcon: Container(
-          //                                     width: toggleButton == 0 ? 40 : 100,
-          //                                     height: 40,
-          //                                     padding: EdgeInsets.all(10),
-          //                                     decoration: BoxDecoration(
-          //                                       color: Colors.amber,
-          //                                     ),
-          //                                     child: ImageIcon(
-          //                                       AssetImage(
-          //                                           "assets/images/config.png"),
-          //                                       size: 20,
-          //                                       color: Colors.grey,
-          //                                     ),
-          //                                   ),
-          //                                   label: Padding(
-          //                                     padding: EdgeInsets.only(top: 3),
-          //                                     child: Text(
-          //                                       'Configuration',
-          //                                       style: TextStyle(
-          //                                           fontSize: 10,
-          //                                           color: Colors.grey),
-          //                                     ),
-          //                                   ),
-          //                                 ),
-          //                                 NavigationRailDestination(
-          //                                   icon: ImageIcon(
-          //                                     AssetImage(
-          //                                         "assets/images/battery1.png"),
-          //                                     size: 20,
-          //                                     color: Colors.grey,
-          //                                   ),
-          //                                   selectedIcon: Container(
-          //                                     width: toggleButton == 0 ? 40 : 100,
-          //                                     height: 40,
-          //                                     padding: EdgeInsets.all(10),
-          //                                     decoration: BoxDecoration(
-          //                                       color: Colors.amber,
-          //                                     ),
-          //                                     child: ImageIcon(
-          //                                       AssetImage(
-          //                                           "assets/images/battery1.png"),
-          //                                       size: 20,
-          //                                       color: Colors.grey,
-          //                                     ),
-          //                                   ),
-          //                                   label: Padding(
-          //                                     padding: EdgeInsets.only(top: 3),
-          //                                     child: Text(
-          //                                       'Power & Battery',
-          //                                       style: TextStyle(
-          //                                           fontSize: 10,
-          //                                           color: Colors.grey),
-          //                                     ),
-          //                                   ),
-          //                                 ),
-          //                                 NavigationRailDestination(
-          //                                   icon: ImageIcon(
-          //                                     AssetImage(
-          //                                         "assets/images/parachute.png"),
-          //                                     size: 20,
-          //                                     color: Colors.grey,
-          //                                   ),
-          //                                   selectedIcon: Container(
-          //                                     width: toggleButton == 0 ? 40 : 100,
-          //                                     height: 40,
-          //                                     padding: EdgeInsets.all(10),
-          //                                     decoration: BoxDecoration(
-          //                                       color: Colors.amber,
-          //                                     ),
-          //                                     child: ImageIcon(
-          //                                       AssetImage(
-          //                                           "assets/images/parachute.png"),
-          //                                       size: 20,
-          //                                       color: Colors.grey,
-          //                                     ),
-          //                                   ),
-          //                                   label: Padding(
-          //                                     padding: EdgeInsets.only(top: 3),
-          //                                     child: Text(
-          //                                       'Failsafe',
-          //                                       style: TextStyle(
-          //                                           fontSize: 10,
-          //                                           color: Colors.grey),
-          //                                     ),
-          //                                   ),
-          //                                 ),
-          //                                 NavigationRailDestination(
-          //                                   icon: ImageIcon(
-          //                                     AssetImage(
-          //                                         "assets/images/pid.png"),
-          //                                     size: 20,
-          //                                     color: Colors.grey,
-          //                                   ),
-          //                                   selectedIcon: Container(
-          //                                     width: toggleButton == 0 ? 40 : 100,
-          //                                     height: 40,
-          //                                     padding: EdgeInsets.all(10),
-          //                                     decoration: BoxDecoration(
-          //                                       color: Colors.amber,
-          //                                     ),
-          //                                     child: ImageIcon(
-          //                                       AssetImage(
-          //                                           "assets/images/pid.png"),
-          //                                       size: 20,
-          //                                       color: Colors.grey,
-          //                                     ),
-          //                                   ),
-          //                                   label: Padding(
-          //                                     padding: EdgeInsets.only(top: 3),
-          //                                     child: Text(
-          //                                       'PID Tuning',
-          //                                       style: TextStyle(
-          //                                           fontSize: 10,
-          //                                           color: Colors.grey),
-          //                                     ),
-          //                                   ),
-          //                                 ),
-          //                                 NavigationRailDestination(
-          //                                   icon: ImageIcon(
-          //                                     AssetImage(
-          //                                         "assets/images/receiver.png"),
-          //                                     size: 20,
-          //                                     color: Colors.grey,
-          //                                   ),
-          //                                   selectedIcon: Container(
-          //                                     width: toggleButton == 0 ? 40 : 100,
-          //                                     height: 40,
-          //                                     padding: EdgeInsets.all(10),
-          //                                     decoration: BoxDecoration(
-          //                                       color: Colors.amber,
-          //                                     ),
-          //                                     child: ImageIcon(
-          //                                       AssetImage(
-          //                                           "assets/images/receiver.png"),
-          //                                       size: 20,
-          //                                       color: Colors.grey,
-          //                                     ),
-          //                                   ),
-          //                                   label: Padding(
-          //                                     padding: EdgeInsets.only(top: 3),
-          //                                     child: Text(
-          //                                       'Receiver',
-          //                                       style: TextStyle(
-          //                                           fontSize: 10,
-          //                                           color: Colors.grey),
-          //                                     ),
-          //                                   ),
-          //                                 ),
-          //                                 NavigationRailDestination(
-          //                                   icon: ImageIcon(
-          //                                     AssetImage(
-          //                                         "assets/images/modes.png"),
-          //                                     size: 20,
-          //                                     color: Colors.grey,
-          //                                   ),
-          //                                   selectedIcon: Container(
-          //                                     width: toggleButton == 0 ? 40 : 100,
-          //                                     height: 40,
-          //                                     padding: EdgeInsets.all(10),
-          //                                     decoration: BoxDecoration(
-          //                                       color: Colors.amber,
-          //                                     ),
-          //                                     child: ImageIcon(
-          //                                       AssetImage(
-          //                                           "assets/images/modes.png"),
-          //                                       size: 20,
-          //                                       color: Colors.grey,
-          //                                     ),
-          //                                   ),
-          //                                   label: Padding(
-          //                                     padding: EdgeInsets.only(top: 3),
-          //                                     child: Text(
-          //                                       'Modes',
-          //                                       style: TextStyle(
-          //                                           fontSize: 10,
-          //                                           color: Colors.grey),
-          //                                     ),
-          //                                   ),
-          //                                 ),
-          //                                 NavigationRailDestination(
-          //                                   icon: ImageIcon(
-          //                                     AssetImage(
-          //                                         "assets/images/adjusment.png"),
-          //                                     size: 20,
-          //                                     color: Colors.grey,
-          //                                   ),
-          //                                   selectedIcon: Container(
-          //                                     width: toggleButton == 0 ? 40 : 100,
-          //                                     height: 40,
-          //                                     padding: EdgeInsets.all(10),
-          //                                     decoration: BoxDecoration(
-          //                                       color: Colors.amber,
-          //                                     ),
-          //                                     child: ImageIcon(
-          //                                       AssetImage(
-          //                                           "assets/images/adjusment.png"),
-          //                                       size: 20,
-          //                                       color: Colors.grey,
-          //                                     ),
-          //                                   ),
-          //                                   label: Padding(
-          //                                     padding: EdgeInsets.only(top: 3),
-          //                                     child: Text(
-          //                                       'Adjustment',
-          //                                       style: TextStyle(
-          //                                           fontSize: 10,
-          //                                           color: Colors.grey),
-          //                                     ),
-          //                                   ),
-          //                                 ),
-          //                                 NavigationRailDestination(
-          //                                   icon: ImageIcon(
-          //                                     AssetImage(
-          //                                         "assets/images/satellite.png"),
-          //                                     size: 20,
-          //                                     color: Colors.grey,
-          //                                   ),
-          //                                   selectedIcon: Container(
-          //                                     width: toggleButton == 0 ? 40 : 100,
-          //                                     height: 40,
-          //                                     padding: EdgeInsets.all(10),
-          //                                     decoration: BoxDecoration(
-          //                                       color: Colors.amber,
-          //                                     ),
-          //                                     child: ImageIcon(
-          //                                       AssetImage(
-          //                                           "assets/images/satelite.png"),
-          //                                       size: 20,
-          //                                       color: Colors.grey,
-          //                                     ),
-          //                                   ),
-          //                                   label: Padding(
-          //                                     padding: EdgeInsets.only(top: 3),
-          //                                     child: Text(
-          //                                       'GPS',
-          //                                       style: TextStyle(
-          //                                           fontSize: 10,
-          //                                           color: Colors.grey),
-          //                                     ),
-          //                                   ),
-          //                                 ),
-          //                                 NavigationRailDestination(
-          //                                   icon: ImageIcon(
-          //                                     AssetImage(
-          //                                         "assets/images/motor.png"),
-          //                                     size: 20,
-          //                                     color: Colors.grey,
-          //                                   ),
-          //                                   selectedIcon: Container(
-          //                                     width: toggleButton == 0 ? 40 : 100,
-          //                                     height: 40,
-          //                                     padding: EdgeInsets.all(10),
-          //                                     decoration: BoxDecoration(
-          //                                       color: Colors.amber,
-          //                                     ),
-          //                                     child: ImageIcon(
-          //                                       AssetImage(
-          //                                           "assets/images/motor.png"),
-          //                                       size: 20,
-          //                                       color: Colors.grey,
-          //                                     ),
-          //                                   ),
-          //                                   label: Padding(
-          //                                     padding: EdgeInsets.only(top: 3),
-          //                                     child: Text(
-          //                                       'Motors',
-          //                                       style: TextStyle(
-          //                                           fontSize: 10,
-          //                                           color: Colors.grey),
-          //                                     ),
-          //                                   ),
-          //                                 ),
-          //                                 NavigationRailDestination(
-          //                                   icon: ImageIcon(
-          //                                     AssetImage(
-          //                                         "assets/images/osd.png"),
-          //                                     size: 20,
-          //                                     color: Colors.grey,
-          //                                   ),
-          //                                   selectedIcon: Container(
-          //                                     width: toggleButton == 0 ? 40 : 100,
-          //                                     height: 40,
-          //                                     padding: EdgeInsets.all(10),
-          //                                     decoration: BoxDecoration(
-          //                                       color: Colors.amber,
-          //                                     ),
-          //                                     child: ImageIcon(
-          //                                       AssetImage(
-          //                                           "assets/images/osd.png"),
-          //                                       size: 20,
-          //                                       color: Colors.grey,
-          //                                     ),
-          //                                   ),
-          //                                   label: Padding(
-          //                                     padding: EdgeInsets.only(top: 3),
-          //                                     child: Text(
-          //                                       'OSD',
-          //                                       style: TextStyle(
-          //                                           fontSize: 10,
-          //                                           color: Colors.grey),
-          //                                     ),
-          //                                   ),
-          //                                 ),
-          //                                 NavigationRailDestination(
-          //                                   icon: ImageIcon(
-          //                                     AssetImage(
-          //                                         "assets/images/blacbox.png"),
-          //                                     size: 20,
-          //                                     color: Colors.grey,
-          //                                   ),
-          //                                   selectedIcon: Container(
-          //                                     width: toggleButton == 0 ? 40 : 100,
-          //                                     height: 40,
-          //                                     padding: EdgeInsets.all(10),
-          //                                     decoration: BoxDecoration(
-          //                                       color: Colors.amber,
-          //                                     ),
-          //                                     child: ImageIcon(
-          //                                       AssetImage(
-          //                                           "assets/images/blacbox.png"),
-          //                                       size: 20,
-          //                                       color: Colors.grey,
-          //                                     ),
-          //                                   ),
-          //                                   label: Padding(
-          //                                     padding: EdgeInsets.only(top: 3),
-          //                                     child: Text(
-          //                                       'Blackbox',
-          //                                       style: TextStyle(
-          //                                           fontSize: 10,
-          //                                           color: Colors.grey),
-          //                                     ),
-          //                                   ),
-          //                                 ),
-          //                                 NavigationRailDestination(
-          //                                   icon: ImageIcon(
-          //                                     AssetImage(
-          //                                         "assets/images/vtx.png"),
-          //                                     size: 20,
-          //                                     color: Colors.grey,
-          //                                   ),
-          //                                   selectedIcon: Container(
-          //                                     width: toggleButton == 0 ? 40 : 100,
-          //                                     height: 40,
-          //                                     padding: EdgeInsets.all(10),
-          //                                     decoration: BoxDecoration(
-          //                                       color: Colors.amber,
-          //                                     ),
-          //                                     child: ImageIcon(
-          //                                       AssetImage(
-          //                                           "assets/images/vtx.png"),
-          //                                       size: 20,
-          //                                       color: Colors.grey,
-          //                                     ),
-          //                                   ),
-          //                                   label: Padding(
-          //                                     padding: EdgeInsets.only(top: 3),
-          //                                     child: Text(
-          //                                       'VTX',
-          //                                       style: TextStyle(
-          //                                           fontSize: 10,
-          //                                           color: Colors.grey),
-          //                                     ),
-          //                                   ),
-          //                                 ),
-          //                                 NavigationRailDestination(
-          //                                   icon: ImageIcon(
-          //                                     AssetImage(
-          //                                         "assets/images/associate.png"),
-          //                                     size: 20,
-          //                                     color: Colors.grey,
-          //                                   ),
-          //                                   selectedIcon: Container(
-          //                                     width: toggleButton == 0 ? 40 : 100,
-          //                                     height: 40,
-          //                                     padding: EdgeInsets.all(10),
-          //                                     decoration: BoxDecoration(
-          //                                       color: Colors.amber,
-          //                                     ),
-          //                                     child: ImageIcon(
-          //                                       AssetImage(
-          //                                           "assets/images/associate.png"),
-          //                                       size: 20,
-          //                                       color: Colors.grey,
-          //                                     ),
-          //                                   ),
-          //                                   label: Padding(
-          //                                     padding: EdgeInsets.only(top: 3),
-          //                                     child: Text(
-          //                                       'Mode & Pin Associate',
-          //                                       style: TextStyle(
-          //                                           fontSize: 10,
-          //                                           color: Colors.grey),
-          //                                     ),
-          //                                   ),
-          //                                 ),
-          //                                 NavigationRailDestination(
-          //                                   icon: ImageIcon(
-          //                                     AssetImage(
-          //                                         "assets/images/file.png"),
-          //                                     size: 20,
-          //                                     color: Colors.grey,
-          //                                   ),
-          //                                   selectedIcon: Container(
-          //                                     width: toggleButton == 0 ? 40 : 100,
-          //                                     height: 40,
-          //                                     padding: EdgeInsets.all(10),
-          //                                     decoration: BoxDecoration(
-          //                                       color: Colors.amber,
-          //                                     ),
-          //                                     child: ImageIcon(
-          //                                       AssetImage(
-          //                                           "assets/images/file.png"),
-          //                                       size: 20,
-          //                                       color: Colors.grey,
-          //                                     ),
-          //                                   ),
-          //                                   label: Padding(
-          //                                     padding: EdgeInsets.only(top: 3),
-          //                                     child: Text(
-          //                                       'CLI',
-          //                                       style: TextStyle(
-          //                                           fontSize: 10,
-          //                                           color: Colors.grey),
-          //                                     ),
-          //                                   ),
-          //                                 ),
-          //                               ],
-          //                             ),
-          //                           ),
-          //                         ),
-          //                       );
-          //                     },
-          //                   ),
-          //                 ),
-          //                 Container(
-          //                   width: toggleButton == 0 ? 40 : 115,
-          //                   height: 40,
-          //                   decoration: BoxDecoration(
-          //                     shape: BoxShape.rectangle,
-          //                     color: Colors.grey.withOpacity(0.3),
-          //                   ),
-          //                   child: IconButton(
-          //                     onPressed: () {
-          //                       setState(
-          //                         () {
-          //                           if (toggleButton == 1) {
-          //                             toggleButton = 0;
-          //                           } else {
-          //                             toggleButton = 1;
-          //                           }
-          //                         },
-          //                       );
-          //                     },
-          //                     icon: Icon(
-          //                       Icons.menu,
-          //                       color: Colors.grey,
-          //                     ),
-          //                   ),
-          //                 ),
-          //               ],
-          //             ),
-          //             Expanded(
-          //               child: PageView.builder(
-          //                 scrollDirection: Axis.vertical,
-          //                 physics: NeverScrollableScrollPhysics(),
-          //                 itemBuilder: (context, index) {
-          //                   return Scaffold(
-          //                     body: Center(child: listPage[_selectedIndex]),
-          //                   );
-          //                 },
-          //               ),
-          //             )
-          //           ],
-          //         ),
-          //       ),
-          //     ),
-          //   ],
-          // ),
-        ),
+          // _upperMenu(mediaWidth, mediaHeight),
+          Expanded(
+            child: Container(
+              margin: const EdgeInsets.only(top: 10),
+              child: Row(
+                children: [
+                  Column(
+                    children: [
+                      Expanded(
+                        child: LayoutBuilder(
+                          builder: (context, constraint) {
+                            return SingleChildScrollView(
+                              child: ConstrainedBox(
+                                constraints: BoxConstraints(
+                                    minHeight: constraint.minHeight),
+                                child: IntrinsicHeight(
+                                  child: NavigationRail(
+                                    minWidth: 32,
+                                    backgroundColor:
+                                        Colors.grey.withOpacity(0.3),
+                                    selectedIndex: _selectedIndex,
+                                    onDestinationSelected: (int index) {
+                                      setState(() {
+                                        _selectedIndex = index;
+                                      });
+                                    },
+                                    selectedIconTheme: const IconThemeData(
+                                        color: Colors.grey, size: 50),
+                                    labelType: toggleButton == 0
+                                        ? NavigationRailLabelType.none
+                                        : NavigationRailLabelType.all,
+                                    destinations: [
+                                      NavigationRailDestination(
+                                        icon: const ImageIcon(
+                                          AssetImage("assets/images/setup.png"),
+                                          size: 10,
+                                          color: Colors.grey,
+                                        ),
+                                        selectedIcon: Container(
+                                          width: toggleButton == 0 ? 32 : 50,
+                                          height: 32,
+                                          padding: const EdgeInsets.all(8),
+                                          // margin: const EdgeInsets.all(0),
+                                          decoration: const BoxDecoration(
+                                            color: Colors.amber,
+                                          ),
+                                          child: const ImageIcon(
+                                            AssetImage(
+                                                "assets/images/setup.png"),
+                                            size: 10,
+                                            color: Colors.grey,
+                                          ),
+                                        ),
+                                        label: const Padding(
+                                          padding: EdgeInsets.only(top: 3),
+                                          child: Text(
+                                            'Setup',
+                                            style: TextStyle(
+                                              color: Colors.grey,
+                                              fontSize: 10,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                      NavigationRailDestination(
+                                        icon: const ImageIcon(
+                                          AssetImage("assets/images/port.png"),
+                                          size: 20,
+                                          color: Colors.grey,
+                                        ),
+                                        selectedIcon: Container(
+                                          width: toggleButton == 0 ? 40 : 100,
+                                          height: 40,
+                                          padding: const EdgeInsets.all(10),
+                                          decoration: const BoxDecoration(
+                                            color: Colors.amber,
+                                          ),
+                                          child: const ImageIcon(
+                                            AssetImage(
+                                                "assets/images/port.png"),
+                                            size: 20,
+                                            color: Colors.grey,
+                                          ),
+                                        ),
+                                        label: const Padding(
+                                          padding: EdgeInsets.only(top: 3),
+                                          child: Text(
+                                            'Port',
+                                            style: TextStyle(
+                                                fontSize: 10,
+                                                color: Colors.grey),
+                                          ),
+                                        ),
+                                      ),
+                                      NavigationRailDestination(
+                                        icon: const ImageIcon(
+                                          AssetImage(
+                                              "assets/images/config.png"),
+                                          size: 20,
+                                          color: Colors.grey,
+                                        ),
+                                        selectedIcon: Container(
+                                          width: toggleButton == 0 ? 40 : 100,
+                                          height: 40,
+                                          padding: const EdgeInsets.all(10),
+                                          decoration: const BoxDecoration(
+                                            color: Colors.amber,
+                                          ),
+                                          child: const ImageIcon(
+                                            AssetImage(
+                                                "assets/images/config.png"),
+                                            size: 20,
+                                            color: Colors.grey,
+                                          ),
+                                        ),
+                                        label: const Padding(
+                                          padding: EdgeInsets.only(top: 3),
+                                          child: Text(
+                                            'Configuration',
+                                            style: TextStyle(
+                                                fontSize: 10,
+                                                color: Colors.grey),
+                                          ),
+                                        ),
+                                      ),
+                                      NavigationRailDestination(
+                                        icon: const ImageIcon(
+                                          AssetImage(
+                                              "assets/images/battery1.png"),
+                                          size: 20,
+                                          color: Colors.grey,
+                                        ),
+                                        selectedIcon: Container(
+                                          width: toggleButton == 0 ? 40 : 100,
+                                          height: 40,
+                                          padding: const EdgeInsets.all(10),
+                                          decoration: const BoxDecoration(
+                                            color: Colors.amber,
+                                          ),
+                                          child: const ImageIcon(
+                                            AssetImage(
+                                                "assets/images/battery1.png"),
+                                            size: 20,
+                                            color: Colors.grey,
+                                          ),
+                                        ),
+                                        label: const Padding(
+                                          padding: EdgeInsets.only(top: 3),
+                                          child: Text(
+                                            'Power & Battery',
+                                            style: TextStyle(
+                                                fontSize: 10,
+                                                color: Colors.grey),
+                                          ),
+                                        ),
+                                      ),
+                                      NavigationRailDestination(
+                                        icon: const ImageIcon(
+                                          AssetImage(
+                                              "assets/images/parachute.png"),
+                                          size: 20,
+                                          color: Colors.grey,
+                                        ),
+                                        selectedIcon: Container(
+                                          width: toggleButton == 0 ? 40 : 100,
+                                          height: 40,
+                                          padding: const EdgeInsets.all(10),
+                                          decoration: const BoxDecoration(
+                                            color: Colors.amber,
+                                          ),
+                                          child: const ImageIcon(
+                                            AssetImage(
+                                                "assets/images/parachute.png"),
+                                            size: 20,
+                                            color: Colors.grey,
+                                          ),
+                                        ),
+                                        label: const Padding(
+                                          padding: EdgeInsets.only(top: 3),
+                                          child: Text(
+                                            'Failsafe',
+                                            style: TextStyle(
+                                                fontSize: 10,
+                                                color: Colors.grey),
+                                          ),
+                                        ),
+                                      ),
+                                      NavigationRailDestination(
+                                        icon: const ImageIcon(
+                                          AssetImage("assets/images/pid.png"),
+                                          size: 20,
+                                          color: Colors.grey,
+                                        ),
+                                        selectedIcon: Container(
+                                          width: toggleButton == 0 ? 40 : 100,
+                                          height: 40,
+                                          padding: const EdgeInsets.all(10),
+                                          decoration: const BoxDecoration(
+                                            color: Colors.amber,
+                                          ),
+                                          child: const ImageIcon(
+                                            AssetImage("assets/images/pid.png"),
+                                            size: 20,
+                                            color: Colors.grey,
+                                          ),
+                                        ),
+                                        label: const Padding(
+                                          padding: EdgeInsets.only(top: 3),
+                                          child: Text(
+                                            'PID Tuning',
+                                            style: TextStyle(
+                                                fontSize: 10,
+                                                color: Colors.grey),
+                                          ),
+                                        ),
+                                      ),
+                                      NavigationRailDestination(
+                                        icon: const ImageIcon(
+                                          AssetImage(
+                                              "assets/images/receiver.png"),
+                                          size: 20,
+                                          color: Colors.grey,
+                                        ),
+                                        selectedIcon: Container(
+                                          width: toggleButton == 0 ? 40 : 100,
+                                          height: 40,
+                                          padding: const EdgeInsets.all(10),
+                                          decoration: const BoxDecoration(
+                                            color: Colors.amber,
+                                          ),
+                                          child: const ImageIcon(
+                                            AssetImage(
+                                                "assets/images/receiver.png"),
+                                            size: 20,
+                                            color: Colors.grey,
+                                          ),
+                                        ),
+                                        label: const Padding(
+                                          padding: EdgeInsets.only(top: 3),
+                                          child: Text(
+                                            'Receiver',
+                                            style: TextStyle(
+                                                fontSize: 10,
+                                                color: Colors.grey),
+                                          ),
+                                        ),
+                                      ),
+                                      NavigationRailDestination(
+                                        icon: const ImageIcon(
+                                          AssetImage("assets/images/modes.png"),
+                                          size: 20,
+                                          color: Colors.grey,
+                                        ),
+                                        selectedIcon: Container(
+                                          width: toggleButton == 0 ? 40 : 100,
+                                          height: 40,
+                                          padding: const EdgeInsets.all(10),
+                                          decoration: const BoxDecoration(
+                                            color: Colors.amber,
+                                          ),
+                                          child: const ImageIcon(
+                                            AssetImage(
+                                                "assets/images/modes.png"),
+                                            size: 20,
+                                            color: Colors.grey,
+                                          ),
+                                        ),
+                                        label: const Padding(
+                                          padding: EdgeInsets.only(top: 3),
+                                          child: Text(
+                                            'Modes',
+                                            style: TextStyle(
+                                                fontSize: 10,
+                                                color: Colors.grey),
+                                          ),
+                                        ),
+                                      ),
+                                      NavigationRailDestination(
+                                        icon: const ImageIcon(
+                                          AssetImage(
+                                              "assets/images/adjusment.png"),
+                                          size: 20,
+                                          color: Colors.grey,
+                                        ),
+                                        selectedIcon: Container(
+                                          width: toggleButton == 0 ? 40 : 100,
+                                          height: 40,
+                                          padding: const EdgeInsets.all(10),
+                                          decoration: const BoxDecoration(
+                                            color: Colors.amber,
+                                          ),
+                                          child: const ImageIcon(
+                                            AssetImage(
+                                                "assets/images/adjusment.png"),
+                                            size: 20,
+                                            color: Colors.grey,
+                                          ),
+                                        ),
+                                        label: const Padding(
+                                          padding: EdgeInsets.only(top: 3),
+                                          child: Text(
+                                            'Adjustment',
+                                            style: TextStyle(
+                                                fontSize: 10,
+                                                color: Colors.grey),
+                                          ),
+                                        ),
+                                      ),
+                                      NavigationRailDestination(
+                                        icon: const ImageIcon(
+                                          AssetImage(
+                                              "assets/images/satellite.png"),
+                                          size: 20,
+                                          color: Colors.grey,
+                                        ),
+                                        selectedIcon: Container(
+                                          width: toggleButton == 0 ? 40 : 100,
+                                          height: 40,
+                                          padding: const EdgeInsets.all(10),
+                                          decoration: const BoxDecoration(
+                                            color: Colors.amber,
+                                          ),
+                                          child: const ImageIcon(
+                                            AssetImage(
+                                                "assets/images/satelite.png"),
+                                            size: 20,
+                                            color: Colors.grey,
+                                          ),
+                                        ),
+                                        label: const Padding(
+                                          padding: EdgeInsets.only(top: 3),
+                                          child: Text(
+                                            'GPS',
+                                            style: TextStyle(
+                                                fontSize: 10,
+                                                color: Colors.grey),
+                                          ),
+                                        ),
+                                      ),
+                                      NavigationRailDestination(
+                                        icon: const ImageIcon(
+                                          AssetImage("assets/images/motor.png"),
+                                          size: 20,
+                                          color: Colors.grey,
+                                        ),
+                                        selectedIcon: Container(
+                                          width: toggleButton == 0 ? 40 : 100,
+                                          height: 40,
+                                          padding: const EdgeInsets.all(10),
+                                          decoration: const BoxDecoration(
+                                            color: Colors.amber,
+                                          ),
+                                          child: const ImageIcon(
+                                            AssetImage(
+                                                "assets/images/motor.png"),
+                                            size: 20,
+                                            color: Colors.grey,
+                                          ),
+                                        ),
+                                        label: const Padding(
+                                          padding: EdgeInsets.only(top: 3),
+                                          child: Text(
+                                            'Motors',
+                                            style: TextStyle(
+                                                fontSize: 10,
+                                                color: Colors.grey),
+                                          ),
+                                        ),
+                                      ),
+                                      NavigationRailDestination(
+                                        icon: const ImageIcon(
+                                          AssetImage("assets/images/osd.png"),
+                                          size: 20,
+                                          color: Colors.grey,
+                                        ),
+                                        selectedIcon: Container(
+                                          width: toggleButton == 0 ? 40 : 100,
+                                          height: 40,
+                                          padding: const EdgeInsets.all(10),
+                                          decoration: const BoxDecoration(
+                                            color: Colors.amber,
+                                          ),
+                                          child: const ImageIcon(
+                                            AssetImage("assets/images/osd.png"),
+                                            size: 20,
+                                            color: Colors.grey,
+                                          ),
+                                        ),
+                                        label: const Padding(
+                                          padding: EdgeInsets.only(top: 3),
+                                          child: Text(
+                                            'OSD',
+                                            style: TextStyle(
+                                                fontSize: 10,
+                                                color: Colors.grey),
+                                          ),
+                                        ),
+                                      ),
+                                      NavigationRailDestination(
+                                        icon: const ImageIcon(
+                                          AssetImage(
+                                              "assets/images/blacbox.png"),
+                                          size: 20,
+                                          color: Colors.grey,
+                                        ),
+                                        selectedIcon: Container(
+                                          width: toggleButton == 0 ? 40 : 100,
+                                          height: 40,
+                                          padding: const EdgeInsets.all(10),
+                                          decoration: const BoxDecoration(
+                                            color: Colors.amber,
+                                          ),
+                                          child: const ImageIcon(
+                                            AssetImage(
+                                                "assets/images/blacbox.png"),
+                                            size: 20,
+                                            color: Colors.grey,
+                                          ),
+                                        ),
+                                        label: const Padding(
+                                          padding: EdgeInsets.only(top: 3),
+                                          child: Text(
+                                            'Blackbox',
+                                            style: TextStyle(
+                                                fontSize: 10,
+                                                color: Colors.grey),
+                                          ),
+                                        ),
+                                      ),
+                                      NavigationRailDestination(
+                                        icon: const ImageIcon(
+                                          AssetImage("assets/images/vtx.png"),
+                                          size: 20,
+                                          color: Colors.grey,
+                                        ),
+                                        selectedIcon: Container(
+                                          width: toggleButton == 0 ? 40 : 100,
+                                          height: 40,
+                                          padding: const EdgeInsets.all(10),
+                                          decoration: const BoxDecoration(
+                                            color: Colors.amber,
+                                          ),
+                                          child: const ImageIcon(
+                                            AssetImage("assets/images/vtx.png"),
+                                            size: 20,
+                                            color: Colors.grey,
+                                          ),
+                                        ),
+                                        label: const Padding(
+                                          padding: EdgeInsets.only(top: 3),
+                                          child: Text(
+                                            'VTX',
+                                            style: TextStyle(
+                                                fontSize: 10,
+                                                color: Colors.grey),
+                                          ),
+                                        ),
+                                      ),
+                                      NavigationRailDestination(
+                                        icon: const ImageIcon(
+                                          AssetImage(
+                                              "assets/images/associate.png"),
+                                          size: 20,
+                                          color: Colors.grey,
+                                        ),
+                                        selectedIcon: Container(
+                                          width: toggleButton == 0 ? 40 : 100,
+                                          height: 40,
+                                          padding: const EdgeInsets.all(10),
+                                          decoration: const BoxDecoration(
+                                            color: Colors.amber,
+                                          ),
+                                          child: const ImageIcon(
+                                            AssetImage(
+                                                "assets/images/associate.png"),
+                                            size: 20,
+                                            color: Colors.grey,
+                                          ),
+                                        ),
+                                        label: const Padding(
+                                          padding: EdgeInsets.only(top: 3),
+                                          child: Text(
+                                            'Mode & Pin Associate',
+                                            style: TextStyle(
+                                                fontSize: 10,
+                                                color: Colors.grey),
+                                          ),
+                                        ),
+                                      ),
+                                      NavigationRailDestination(
+                                        icon: const ImageIcon(
+                                          AssetImage("assets/images/file.png"),
+                                          size: 20,
+                                          color: Colors.grey,
+                                        ),
+                                        selectedIcon: Container(
+                                          width: toggleButton == 0 ? 40 : 100,
+                                          height: 40,
+                                          padding: const EdgeInsets.all(10),
+                                          decoration: const BoxDecoration(
+                                            color: Colors.amber,
+                                          ),
+                                          child: const ImageIcon(
+                                            AssetImage(
+                                                "assets/images/file.png"),
+                                            size: 20,
+                                            color: Colors.grey,
+                                          ),
+                                        ),
+                                        label: const Padding(
+                                          padding: EdgeInsets.only(top: 3),
+                                          child: Text(
+                                            'CLI',
+                                            style: TextStyle(
+                                                fontSize: 10,
+                                                color: Colors.grey),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            );
+                          },
+                        ),
+                      ),
+                      Container(
+                        width: toggleButton == 0 ? 32 : 50,
+                        height: 32,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.rectangle,
+                          color: Colors.grey.withOpacity(0.3),
+                        ),
+                        child: IconButton(
+                          onPressed: () {
+                            setState(
+                              () {
+                                if (toggleButton == 1) {
+                                  toggleButton = 0;
+                                } else {
+                                  toggleButton = 1;
+                                }
+                              },
+                            );
+                          },
+                          icon: const Icon(
+                            Icons.menu,
+                            color: Colors.grey,
+                            size: 18,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  Expanded(
+                    child: PageView.builder(
+                      scrollDirection: Axis.vertical,
+                      physics: const NeverScrollableScrollPhysics(),
+                      itemBuilder: (context, index) {
+                        return DecoratedBox(
+                          decoration: const BoxDecoration(
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(
+                                25,
+                              ),
+                            ),
+                          ),
+                          child: listPage[_selectedIndex],
+                        );
+                      },
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
