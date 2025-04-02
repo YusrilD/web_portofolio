@@ -19,21 +19,19 @@ class _SetupState extends State<Setup> {
       child: SingleChildScrollView(
         child: Column(
           children: [
-            Container(
-              margin: const EdgeInsets.only(
-                left: 16,
-                right: 16,
-                top: 10,
-              ),
-              alignment: Alignment.centerLeft,
+            SizedBox(
+              width: Get.width,
               child: Text(
                 "Setup",
+                textAlign: TextAlign.start,
                 style: GoogleFonts.roboto().copyWith(
-                  fontSize: 12.0,
-                  color: Colors.white,
+                  fontSize: 14.0,
+                  fontWeight: FontWeight.w600,
                 ),
+              ).paddingOnly(
+                top: 10.0,
+                left: 8.0,
               ),
-              // const Text("Setup", style: ,),
             ),
             const Divider(
               color: Colors.white,

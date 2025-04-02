@@ -5,7 +5,9 @@ class AppImages {
   static const String gradMobileImage = 'assets/grad_mobile.webp';
   static const String phoneFrameImage = 'assets/phone_frame.png';
 
-  static const String speedyBeeImage = 'assets/speedybee.png';
+  static const String speedyBeeIconApp = 'assets/app_speedybee.png';
+  static const String kuestaIconApp = 'assets/app_kuesta.png';
+  static const String insertIconApp = 'assets/app_insert.png';
 
   static const String githubIcon = 'assets/icons/ic_github.png';
   static const String instagramIcon = 'assets/icons/ic_instagram.png';
