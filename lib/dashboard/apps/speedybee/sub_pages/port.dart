@@ -16,46 +16,44 @@ class _PortState extends State<Port> {
   Widget build(BuildContext context) {
     var mediaWidth = MediaQuery.of(context).size.width;
     var mediaHeight = MediaQuery.of(context).size.height;
-    return ColoredBox(
-      color: Colors.amber,
-      child: SingleChildScrollView(
+    return Scaffold(
+      backgroundColor: Colors.amber,
+      body: SingleChildScrollView(
         child: Column(
           children: [
-            SizedBox(
+            Container(
+              margin: EdgeInsets.all(5),
               width: mediaWidth,
               child: Text(
                 "Ports",
-                textAlign: TextAlign.start,
-                style: GoogleFonts.roboto().copyWith(
-                  fontSize: 14.0,
-                  fontWeight: FontWeight.w600,
+                style: TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 15,
                 ),
-              ).paddingOnly(
-                top: 10.0,
-                left: 8.0,
               ),
             ),
-            const Divider(
-              thickness: 1,
-              endIndent: 8,
-              indent: 8,
+            Container(
+              width: mediaWidth,
+              height: 1,
+              margin: EdgeInsets.all(5),
               color: Colors.white,
             ),
             Container(
-              margin: const EdgeInsets.all(5),
+              margin: EdgeInsets.all(5),
               decoration: BoxDecoration(
                 color: Colors.white,
                 border: Border.all(color: Colors.black, width: 0.5),
-                borderRadius: const BorderRadius.all(
+                borderRadius: BorderRadius.all(
                   Radius.circular(5),
                 ),
               ),
               child: Column(
                 children: [
                   Container(
-                    padding: const EdgeInsets.all(10),
+                    padding: EdgeInsets.all(10),
                     width: mediaWidth,
-                    decoration: const BoxDecoration(
+                    decoration: BoxDecoration(
                       color: Colors.black87,
                       borderRadius: BorderRadius.only(
                         topRight: Radius.circular(5),
@@ -64,11 +62,7 @@ class _PortState extends State<Port> {
                     ),
                     child: Text(
                       "USB VCP",
-                      // style: TextStyle(
-                      //   color: Colors.white,
-                      // ),
-                      style: GoogleFonts.roboto().copyWith(
-                        fontSize: 14.0,
+                      style: TextStyle(
                         color: Colors.white,
                       ),
                     ),
@@ -83,60 +77,60 @@ class _PortState extends State<Port> {
                         children: [
                           TableCell(
                             child: Container(
-                              margin: const EdgeInsets.all(5),
+                              margin: EdgeInsets.all(5),
                               alignment: Alignment.center,
                               child: Text(
                                 "MSP",
-                                style: GoogleFonts.roboto().copyWith(
-                                  fontSize: 8.0,
+                                style: TextStyle(
+                                  fontSize: 11,
                                 ),
                               ),
                             ),
                           ),
                           TableCell(
                             child: Container(
-                              margin: const EdgeInsets.all(5),
+                              margin: EdgeInsets.all(5),
                               alignment: Alignment.center,
                               child: Text(
                                 "Serial Rx",
-                                style: GoogleFonts.roboto().copyWith(
-                                  fontSize: 8.0,
+                                style: TextStyle(
+                                  fontSize: 11,
                                 ),
                               ),
                             ),
                           ),
                           TableCell(
                             child: Container(
-                              margin: const EdgeInsets.all(5),
+                              margin: EdgeInsets.all(5),
                               alignment: Alignment.center,
                               child: Text(
                                 "Telemetry",
-                                style: GoogleFonts.roboto().copyWith(
-                                  fontSize: 8.0,
+                                style: TextStyle(
+                                  fontSize: 11,
                                 ),
                               ),
                             ),
                           ),
                           TableCell(
                             child: Container(
-                              margin: const EdgeInsets.all(5),
+                              margin: EdgeInsets.all(5),
                               alignment: Alignment.center,
                               child: Text(
                                 "Sensor",
-                                style: GoogleFonts.roboto().copyWith(
-                                  fontSize: 8.0,
+                                style: TextStyle(
+                                  fontSize: 11,
                                 ),
                               ),
                             ),
                           ),
                           TableCell(
                             child: Container(
-                              margin: const EdgeInsets.all(5),
+                              margin: EdgeInsets.all(5),
                               alignment: Alignment.center,
                               child: Text(
                                 "Peripherals",
-                                style: GoogleFonts.roboto().copyWith(
-                                  fontSize: 8.0,
+                                style: TextStyle(
+                                  fontSize: 11,
                                 ),
                               ),
                             ),
@@ -146,61 +140,55 @@ class _PortState extends State<Port> {
                       TableRow(
                         children: [
                           TableCell(
-                            child: Transform.scale(
-                              scale: 0.5,
-                              child: Switch(
-                                activeColor: Colors.amber,
-                                value: true,
-                                onChanged: (value) {
-                                  setState(() {});
-                                },
-                              ),
+                            child: Switch(
+                              activeColor: Colors.amber,
+                              value: true,
+                              onChanged: (value) {
+                                setState(() {});
+                              },
                             ),
                           ),
                           TableCell(
-                            child: Transform.scale(
-                              scale: 0.5,
-                              child: Switch(
-                                activeColor: Colors.amber,
-                                value: true,
-                                onChanged: (value) {
-                                  setState(() {});
-                                },
-                              ),
+                            child: Switch(
+                              activeColor: Colors.amber,
+                              value: true,
+                              onChanged: (value) {
+                                setState(() {});
+                              },
                             ),
                           ),
                           TableCell(
                             child: Container(
-                              margin: const EdgeInsets.all(5),
+                              margin: EdgeInsets.all(5),
                               alignment: Alignment.bottomCenter,
                               child: Text(
                                 "Peripherals",
-                                style: GoogleFonts.roboto().copyWith(
-                                  fontSize: 8.0,
+                                style: TextStyle(
+                                  fontSize: 11,
                                 ),
                               ),
                             ),
                           ),
                           TableCell(
                             child: Container(
-                              margin: const EdgeInsets.all(5),
+                              margin: EdgeInsets.all(5),
                               alignment: Alignment.center,
                               child: Text(
                                 "Peripherals",
-                                style: GoogleFonts.roboto().copyWith(
-                                  fontSize: 8.0,
+                                style: TextStyle(
+                                  fontSize: 11,
                                 ),
                               ),
                             ),
                           ),
                           TableCell(
                             child: Container(
-                              margin: const EdgeInsets.all(5),
+                              margin: EdgeInsets.all(5),
                               alignment: Alignment.center,
                               child: Text(
                                 "Peripherals",
-                                style: GoogleFonts.roboto().copyWith(
-                                  fontSize: 8.0,
+                                style: TextStyle(
+                                  fontSize: 11,
                                 ),
                               ),
                             ),
@@ -211,60 +199,60 @@ class _PortState extends State<Port> {
                         children: [
                           TableCell(
                             child: Container(
-                              margin: const EdgeInsets.all(5),
+                              margin: EdgeInsets.all(5),
                               alignment: Alignment.center,
                               child: Text(
                                 "115200",
-                                style: GoogleFonts.roboto().copyWith(
-                                  fontSize: 8.0,
+                                style: TextStyle(
+                                  fontSize: 12,
                                 ),
                               ),
                             ),
                           ),
                           TableCell(
                             child: Container(
-                              margin: const EdgeInsets.all(5),
+                              margin: EdgeInsets.all(5),
                               alignment: Alignment.center,
                               child: Text(
                                 "115200",
-                                style: GoogleFonts.roboto().copyWith(
-                                  fontSize: 8.0,
+                                style: TextStyle(
+                                  fontSize: 12,
                                 ),
                               ),
                             ),
                           ),
                           TableCell(
                             child: Container(
-                              margin: const EdgeInsets.all(5),
+                              margin: EdgeInsets.all(5),
                               alignment: Alignment.center,
                               child: Text(
                                 "115200",
-                                style: GoogleFonts.roboto().copyWith(
-                                  fontSize: 8.0,
+                                style: TextStyle(
+                                  fontSize: 12,
                                 ),
                               ),
                             ),
                           ),
                           TableCell(
                             child: Container(
-                              margin: const EdgeInsets.all(5),
+                              margin: EdgeInsets.all(5),
                               alignment: Alignment.center,
                               child: Text(
                                 "115200",
-                                style: GoogleFonts.roboto().copyWith(
-                                  fontSize: 8.0,
+                                style: TextStyle(
+                                  fontSize: 12,
                                 ),
                               ),
                             ),
                           ),
                           TableCell(
                             child: Container(
-                              margin: const EdgeInsets.all(5),
+                              margin: EdgeInsets.all(5),
                               alignment: Alignment.center,
                               child: Text(
                                 "115200",
-                                style: GoogleFonts.roboto().copyWith(
-                                  fontSize: 8.0,
+                                style: TextStyle(
+                                  fontSize: 12,
                                 ),
                               ),
                             ),

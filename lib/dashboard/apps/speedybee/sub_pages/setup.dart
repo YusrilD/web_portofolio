@@ -12,75 +12,60 @@ class Setup extends StatefulWidget {
 class _SetupState extends State<Setup> {
   @override
   Widget build(BuildContext context) {
-    var mediaWidth = Get.width * 0.177;
-    var mediaHeight = Get.height * 0.677;
-    return ColoredBox(
-      color: Colors.amber,
-      child: SingleChildScrollView(
+    var mediaWidth = Get.width;
+    var mediaHeight = Get.height;
+    return Scaffold(
+      backgroundColor: Colors.amber,
+      body: SingleChildScrollView(
         child: Column(
           children: [
-            SizedBox(
-              width: Get.width,
-              child: Text(
-                "Setup",
-                textAlign: TextAlign.start,
-                style: GoogleFonts.roboto().copyWith(
-                  fontSize: 14.0,
-                  fontWeight: FontWeight.w600,
-                ),
-              ).paddingOnly(
-                top: 10.0,
-                left: 8.0,
-              ),
+            Container(
+              margin: const EdgeInsets.all(15),
+              alignment: Alignment.centerLeft,
+              child: const Text("Setup"),
             ),
-            const Divider(
+            Container(
+              width: mediaWidth,
+              height: 1,
+              margin: const EdgeInsets.all(5),
               color: Colors.white,
-              endIndent: 8,
-              indent: 8,
             ),
             Container(
               margin: const EdgeInsets.all(5),
-              padding: const EdgeInsets.all(8),
+              padding: const EdgeInsets.all(15),
               width: mediaWidth,
               decoration: const BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.all(
-                  Radius.circular(15),
-                ),
-                image: DecorationImage(
-                  image: AssetImage(
-                    'assets/images/setup_paper.jpg',
+                  color: Colors.white,
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(15),
                   ),
-                  fit: BoxFit.fill,
-                ),
-                shape: BoxShape.rectangle,
-              ),
+                  image: DecorationImage(
+                    image: AssetImage(
+                      'assets/images/setup_paper.jpg',
+                    ),
+                    fit: BoxFit.cover,
+                  ),
+                  shape: BoxShape.rectangle),
               child: Column(
                 children: [
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Column(
+                      const Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
                             "Heading: 169 deg",
-                            style: GoogleFonts.roboto().copyWith(
-                              fontSize: 8.0,
-                            ),
+                            style: TextStyle(fontSize: 10),
                           ),
                           Text(
                             "Pitch: -1.9 deg",
-                            style: GoogleFonts.roboto().copyWith(
-                              fontSize: 8.0,
-                            ),
+                            style: TextStyle(fontSize: 10),
                           ),
                           Text(
                             "Roll: 172.7 deg",
-                            style: GoogleFonts.roboto().copyWith(
-                              fontSize: 8.0,
-                            ),
+                            style: TextStyle(fontSize: 10),
                           ),
                         ],
                       ),
@@ -95,10 +80,11 @@ class _SetupState extends State<Setup> {
                             width: 1,
                           ),
                         ),
-                        child: Text(
-                          "Reset Z axis",
-                          style: GoogleFonts.roboto().copyWith(
-                            fontSize: 8.0,
+                        child: const Text(
+                          "Reset Z axis offset:0.0 deg",
+                          style: TextStyle(
+                            fontSize: 10,
+                            fontWeight: FontWeight.bold,
                           ),
                         ),
                       ),
@@ -111,33 +97,17 @@ class _SetupState extends State<Setup> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        const SizedBox(
-                          width: 60,
-                          height: 60,
-                          child: ModelViewer(
+                        SizedBox(
+                          width: Get.width * 0.12,
+                          height: Get.width * 0.12,
+                          child: const ModelViewer(
                             src: "assets/images/fpv.glb",
                           ),
                         ),
-                        // Container(
-
-                        //   decoration: const BoxDecoration(
-                        //     image: DecorationImage(
-                        //       image: AssetImage(
-                        //         'assets/images/altitude_indicator.png',
-                        //       ),
-                        //     ),
-                        //   ),
-                        // ),
-                        Container(
-                          width: 50,
-                          height: 50,
-                          decoration: const BoxDecoration(
-                            image: DecorationImage(
-                              image: AssetImage(
-                                'assets/images/heading_indicator.png',
-                              ),
-                            ),
-                          ),
+                        Image.asset(
+                          "assets/images/heading_indicator.png",
+                          width: Get.width * 0.12,
+                          height: Get.width * 0.12,
                         ),
                       ],
                     ),
@@ -146,8 +116,8 @@ class _SetupState extends State<Setup> {
               ),
             ),
             /*SizedBox(
-                  height: 5,
-                ),*/
+                height: 5,
+              ),*/
             Container(
               margin: const EdgeInsets.all(5),
               decoration: BoxDecoration(
@@ -169,38 +139,26 @@ class _SetupState extends State<Setup> {
                         topLeft: Radius.circular(10),
                       ),
                     ),
-                    child: Text(
+                    child: const Text(
                       "Info",
-                      style: GoogleFonts.roboto().copyWith(
-                        fontSize: 14.0,
+                      style: TextStyle(
                         color: Colors.white,
                       ),
-                      // style: TextStyle(
-                      //   color: Colors.white,
-                      // ),
                     ),
                   ),
                   Container(
-                    padding: const EdgeInsets.all(10),
-                    alignment: Alignment.centerLeft,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          "Arming Disable Flags:",
-                          style: GoogleFonts.roboto().copyWith(
-                            fontSize: 8.0,
+                      padding: const EdgeInsets.all(10),
+                      alignment: Alignment.centerLeft,
+                      child: const Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            "Arming Disable Flags:",
+                            style: TextStyle(fontSize: 13),
                           ),
-                        ),
-                        Text(
-                          "3,8",
-                          style: GoogleFonts.roboto().copyWith(
-                            fontSize: 8.0,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
+                          Text("3,8"),
+                        ],
+                      )),
                   Container(
                     color: Colors.grey.withOpacity(0.6),
                     padding: const EdgeInsets.all(10),
@@ -208,7 +166,6 @@ class _SetupState extends State<Setup> {
                     child: Column(
                       children: [
                         Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Container(
                               padding: const EdgeInsets.all(0.5),
@@ -223,14 +180,9 @@ class _SetupState extends State<Setup> {
                                 color: Colors.white,
                               ),
                             ),
-                            Expanded(
-                              child: Text(
-                                "No valid receiver signal is detected",
-                                maxLines: 2,
-                                style: GoogleFonts.roboto().copyWith(
-                                  fontSize: 8.0,
-                                ),
-                              ),
+                            const Text(
+                              "No valid receiver signal is detected",
+                              style: TextStyle(fontSize: 10),
                             )
                           ],
                         ),
@@ -250,11 +202,9 @@ class _SetupState extends State<Setup> {
                                 color: Colors.white,
                               ),
                             ),
-                            Text(
+                            const Text(
                               "Craft is not level.",
-                              style: GoogleFonts.roboto().copyWith(
-                                fontSize: 8.0,
-                              ),
+                              style: TextStyle(fontSize: 10),
                             )
                           ],
                         )
@@ -269,20 +219,24 @@ class _SetupState extends State<Setup> {
                       bottom: 5,
                     ),
                     alignment: Alignment.centerLeft,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    child: const Column(
                       children: [
-                        Text(
-                          "Battery Voltage",
-                          style: GoogleFonts.roboto().copyWith(
-                            fontSize: 8.0,
-                          ),
-                        ),
-                        Text(
-                          "0.4 V",
-                          style: GoogleFonts.roboto().copyWith(
-                            fontSize: 8.0,
-                          ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              "Battery Voltage",
+                              style: TextStyle(
+                                fontSize: 13,
+                              ),
+                            ),
+                            Text(
+                              "0.4 V",
+                              style: TextStyle(
+                                fontSize: 13,
+                              ),
+                            ),
+                          ],
                         ),
                       ],
                     ),
@@ -302,19 +256,19 @@ class _SetupState extends State<Setup> {
                     alignment: Alignment.centerLeft,
                     child: Column(
                       children: [
-                        Row(
+                        const Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
                               "Capacity drawn",
-                              style: GoogleFonts.roboto().copyWith(
-                                fontSize: 8.0,
+                              style: TextStyle(
+                                fontSize: 13,
                               ),
                             ),
                             Text(
                               "0 mAh",
-                              style: GoogleFonts.roboto().copyWith(
-                                fontSize: 8.0,
+                              style: TextStyle(
+                                fontSize: 13,
                               ),
                             ),
                           ],
@@ -341,19 +295,19 @@ class _SetupState extends State<Setup> {
                     alignment: Alignment.centerLeft,
                     child: Column(
                       children: [
-                        Row(
+                        const Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
                               "Current draw",
-                              style: GoogleFonts.roboto().copyWith(
-                                fontSize: 8.0,
+                              style: TextStyle(
+                                fontSize: 13,
                               ),
                             ),
                             Text(
                               "0.0 A",
-                              style: GoogleFonts.roboto().copyWith(
-                                fontSize: 8.0,
+                              style: TextStyle(
+                                fontSize: 13,
                               ),
                             ),
                           ],
@@ -380,19 +334,19 @@ class _SetupState extends State<Setup> {
                     alignment: Alignment.centerLeft,
                     child: Column(
                       children: [
-                        Row(
+                        const Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
                               "RSSI",
-                              style: GoogleFonts.roboto().copyWith(
-                                fontSize: 8.0,
+                              style: TextStyle(
+                                fontSize: 13,
                               ),
                             ),
                             Text(
                               "0 %",
-                              style: GoogleFonts.roboto().copyWith(
-                                fontSize: 8.0,
+                              style: TextStyle(
+                                fontSize: 13,
                               ),
                             ),
                           ],
@@ -433,10 +387,9 @@ class _SetupState extends State<Setup> {
                         topLeft: Radius.circular(10),
                       ),
                     ),
-                    child: Text(
+                    child: const Text(
                       "GPS",
-                      style: GoogleFonts.roboto().copyWith(
-                        fontSize: 14.0,
+                      style: TextStyle(
                         color: Colors.white,
                       ),
                     ),
@@ -444,11 +397,9 @@ class _SetupState extends State<Setup> {
                   Container(
                     padding: const EdgeInsets.all(10),
                     alignment: Alignment.centerLeft,
-                    child: Text(
+                    child: const Text(
                       "3D Fix:",
-                      style: GoogleFonts.roboto().copyWith(
-                        fontSize: 8.0,
-                      ),
+                      style: TextStyle(fontSize: 13),
                     ),
                   ),
                   Container(
@@ -459,11 +410,9 @@ class _SetupState extends State<Setup> {
                   Container(
                     padding: const EdgeInsets.all(10),
                     alignment: Alignment.centerLeft,
-                    child: Text(
+                    child: const Text(
                       "Sats:",
-                      style: GoogleFonts.roboto().copyWith(
-                        fontSize: 8.0,
-                      ),
+                      style: TextStyle(fontSize: 13),
                     ),
                   ),
                   Container(
@@ -474,11 +423,9 @@ class _SetupState extends State<Setup> {
                   Container(
                     padding: const EdgeInsets.all(10),
                     alignment: Alignment.centerLeft,
-                    child: Text(
+                    child: const Text(
                       "Latitude:",
-                      style: GoogleFonts.roboto().copyWith(
-                        fontSize: 8.0,
-                      ),
+                      style: TextStyle(fontSize: 13),
                     ),
                   ),
                   Container(
@@ -489,11 +436,9 @@ class _SetupState extends State<Setup> {
                   Container(
                     padding: const EdgeInsets.all(10),
                     alignment: Alignment.centerLeft,
-                    child: Text(
+                    child: const Text(
                       "Longitude",
-                      style: GoogleFonts.roboto().copyWith(
-                        fontSize: 8.0,
-                      ),
+                      style: TextStyle(fontSize: 13),
                     ),
                   ),
                   Container(
