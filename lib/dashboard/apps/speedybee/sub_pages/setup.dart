@@ -101,7 +101,7 @@ class _SetupState extends State<Setup> {
                           width: Get.width * 0.12,
                           height: Get.width * 0.12,
                           child: const ModelViewer(
-                            src: "assets/images/fpv.glb",
+                            src: "https://yusrildewantara.tech/assets/assets/fpv.glb",
                           ),
                         ),
                         Image.asset(

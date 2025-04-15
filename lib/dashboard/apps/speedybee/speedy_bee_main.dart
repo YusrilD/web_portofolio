@@ -312,125 +312,122 @@ class _SpeedyBeeMainState extends State<SpeedyBeeMain> {
   }
 
   Widget _initMenu(var mediaWidth, var mediaHeight) {
-    return ColoredBox(
-      color: Colors.pink,
-      child: Stack(
-        children: [
-          Container(
-            // height: mediaHeight,
-
-            decoration: const BoxDecoration(
-              borderRadius: BorderRadius.all(
-                Radius.circular(12),
-              ),
-              image: DecorationImage(
-                  image: ExactAssetImage(AppImages.speedyBeeLogo),
-                  fit: BoxFit.cover),
+    return Stack(
+      children: [
+        Container(
+          // height: mediaHeight,
+    
+          decoration: const BoxDecoration(
+            borderRadius: BorderRadius.all(
+              Radius.circular(12),
             ),
+            image: DecorationImage(
+                image: ExactAssetImage(AppImages.speedyBeeLogo),
+                fit: BoxFit.cover),
           ),
-          Positioned(
-            child: Container(
-              // height: mediaHeight,
-              decoration: BoxDecoration(
-                color: Colors.black.withOpacity(0.7),
-                // borderRadius: BorderRadius.circular(20),
-              ),
-              child: Center(
-                child: Column(
-                  // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Expanded(
-                      child: Align(
-                        alignment: Alignment.center,
-                        child: DecoratedBox(
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: Colors.white.withOpacity(0.5),
-                          ),
-                          child: Image.asset(
-                            AppImages.speedyBeeMainLogo,
-                            scale: 3,
-                          ).paddingAll(16.0),
+        ),
+        Positioned(
+          child: Container(
+            // height: mediaHeight,
+            decoration: BoxDecoration(
+              color: Colors.black.withOpacity(0.7),
+              // borderRadius: BorderRadius.circular(20),
+            ),
+            child: Center(
+              child: Column(
+                // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Expanded(
+                    child: Align(
+                      alignment: Alignment.center,
+                      child: DecoratedBox(
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Colors.white.withOpacity(0.5),
                         ),
+                        child: Image.asset(
+                          AppImages.speedyBeeMainLogo,
+                          scale: 3,
+                        ).paddingAll(16.0),
                       ),
                     ),
-                    Column(
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            DecoratedBox(
-                              decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  color: Colors.white.withOpacity(0.5)),
-                              child: const Icon(
-                                Icons.wifi,
-                                color: Colors.blueAccent,
-                                size: 40,
-                              ).paddingAll(8),
-                            ).paddingAll(16),
-                            DecoratedBox(
-                              decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  color: Colors.white.withOpacity(0.5)),
-                              child: const Icon(
-                                Icons.bluetooth,
-                                color: Colors.blue,
-                                size: 40,
-                              ).paddingAll(8),
-                            ).paddingAll(16),
-                            DecoratedBox(
-                              decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  color: Colors.white.withOpacity(0.5)),
-                              child: const Icon(
-                                Icons.usb,
-                                color: Colors.lightGreen,
-                                size: 40,
-                              ).paddingAll(8),
-                            ).paddingAll(16),
-                          ],
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 10),
-                          child: ElevatedButton(
-                            style: const ButtonStyle(
-                                backgroundColor: WidgetStatePropertyAll(
-                              Colors.amber,
-                            )),
-                            onPressed: () {
-                              webMobileController.selectPage(
-                                Dashboard(),
-                              );
-                            },
-                            child: Text(
-                              "Try SpeedyBee",
-                              style: GoogleFonts.lato().copyWith(
-                                  color: Colors.white,
-                                  fontSize: 22,
-                                  fontWeight: FontWeight.w700,
-                                  letterSpacing: 1),
-                            ).paddingAll(
-                              16,
-                            ),
-                          ),
-                        ),
-                        const Padding(
-                          padding: EdgeInsets.only(top: 20, bottom: 20),
+                  ),
+                  Column(
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          DecoratedBox(
+                            decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: Colors.white.withOpacity(0.5)),
+                            child: const Icon(
+                              Icons.wifi,
+                              color: Colors.blueAccent,
+                              size: 40,
+                            ).paddingAll(8),
+                          ).paddingAll(16),
+                          DecoratedBox(
+                            decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: Colors.white.withOpacity(0.5)),
+                            child: const Icon(
+                              Icons.bluetooth,
+                              color: Colors.blue,
+                              size: 40,
+                            ).paddingAll(8),
+                          ).paddingAll(16),
+                          DecoratedBox(
+                            decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: Colors.white.withOpacity(0.5)),
+                            child: const Icon(
+                              Icons.usb,
+                              color: Colors.lightGreen,
+                              size: 40,
+                            ).paddingAll(8),
+                          ).paddingAll(16),
+                        ],
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 10),
+                        child: ElevatedButton(
+                          style: const ButtonStyle(
+                              backgroundColor: WidgetStatePropertyAll(
+                            Colors.amber,
+                          )),
+                          onPressed: () {
+                            webMobileController.selectPage(
+                              Dashboard(),
+                            );
+                          },
                           child: Text(
-                            "Ver. 1.0.0",
-                            style: TextStyle(color: Colors.grey),
+                            "Try SpeedyBee",
+                            style: GoogleFonts.lato().copyWith(
+                                color: Colors.white,
+                                fontSize: 22,
+                                fontWeight: FontWeight.w700,
+                                letterSpacing: 1),
+                          ).paddingAll(
+                            16,
                           ),
                         ),
-                      ],
-                    ),
-                  ],
-                ),
+                      ),
+                      const Padding(
+                        padding: EdgeInsets.only(top: 20, bottom: 20),
+                        child: Text(
+                          "Ver. 1.0.0",
+                          style: TextStyle(color: Colors.grey),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
               ),
             ),
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 

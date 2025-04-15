@@ -30,18 +30,19 @@ class DashboardWeb extends StatelessWidget {
         Align(
           alignment: Alignment.center,
           child: SizedBox(
-            width: MediaQuery.of(context).size.width * 0.7,
+            width: MediaQuery.of(context).size.width * 0.8,
             child: Row(
               children: [
                 // kToolbarHeight.spaceX,
                 Expanded(
+                  flex: 2,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Row(
                         children: [
-                          // avatar(100),
+                          avatar(100),
                           16.0.spaceX,
                           Expanded(
                             child: FittedBox(
@@ -109,89 +110,97 @@ class DashboardWeb extends StatelessWidget {
                 16.0.spaceX,
                 Expanded(
                     flex: 1,
-                    child: Stack(
-                      children: [
-                        SizedBox(
-                          width: Get.width * 0.5,
-                          height: Get.height * 0.8,
-                          child: DeviceFrame(
-                            device: Devices.android.samsungGalaxyA50,
-                            isFrameVisible: true,
-                            orientation: Orientation.portrait,
-                            screen: Obx(
-                              () {
-                                if (webMobileController.isShowGrid.value) {
-                                  return DecoratedBox(
-                                    decoration: const BoxDecoration(
-                                      image: DecorationImage(
-                                        image: ExactAssetImage(
-                                            AppImages.gradMobileImage),
-                                        fit: BoxFit.cover,
+                    child: SizedBox(
+                      width: Get.width * 0.5,
+                      height: Get.height * 0.8,
+                      child: Align(
+                        alignment: Alignment.center,
+                        child: Stack(
+                          children: [
+                            DeviceFrame(
+                              device: Devices.android.samsungGalaxyA50,
+                              isFrameVisible: true,
+                              orientation: Orientation.portrait,
+                              screen: Obx(
+                                () {
+                                  if (webMobileController.isShowGrid.value) {
+                                    return DecoratedBox(
+                                      decoration: const BoxDecoration(
+                                        image: DecorationImage(
+                                          image: ExactAssetImage(
+                                              AppImages.gradMobileImage),
+                                          fit: BoxFit.cover,
+                                        ),
                                       ),
-                                    ),
-                                    child: SizedBox(
-                                      width: Get.width,
-                                      height: Get.height,
-                                      child: GridView.count(
-                                        physics:
-                                            const NeverScrollableScrollPhysics(),
-                                        mainAxisSpacing: 5,
-                                        crossAxisSpacing: 10,
-                                        crossAxisCount: 3,
-                                        shrinkWrap: true,
-                                        childAspectRatio: 1.2,
-                                        padding: EdgeInsets.zero,
-                                        children: webMobileController.listIcon
-                                            .map((item) {
-                                          return GestureDetector(
-                                            onTap: () {
-                                              webMobileController.selectedApps
-                                                  .value.widget = item.widget;
-                                              webMobileController
-                                                  .isShowGrid.value = false;
-                                              // Get.toNamed(item.routes!);
-                                            },
-                                            child: Image.asset(item.icon!),
-                                          );
-                                        }).toList(),
-                                      ).paddingOnly(
-                                        top: kToolbarHeight,
-                                        left: 16.0,
-                                        right: 16.0,
-                                        bottom: 16.0,
+                                      child: SizedBox(
+                                        width: Get.width,
+                                        height: Get.height,
+                                        child: GridView.count(
+                                          physics:
+                                              const NeverScrollableScrollPhysics(),
+                                          mainAxisSpacing: 5,
+                                          crossAxisSpacing: 10,
+                                          crossAxisCount: 3,
+                                          shrinkWrap: true,
+                                          childAspectRatio: 1.2,
+                                          padding: EdgeInsets.zero,
+                                          children: webMobileController.listIcon
+                                              .map((item) {
+                                            return InkWell(
+                                              onTap: () {
+                                                webMobileController.selectedApps
+                                                    .value.widget = item.widget;
+                                                webMobileController
+                                                    .isShowGrid.value = false;
+                                                // Get.toNamed(item.routes!);
+                                              },
+                                              child: Image.asset(item.icon!),
+                                            );
+                                          }).toList(),
+                                        ).paddingOnly(
+                                          top: kToolbarHeight,
+                                          left: 16.0,
+                                          right: 16.0,
+                                          bottom: 16.0,
+                                        ),
                                       ),
-                                    ),
+                                    );
+                                  }
+                                  return SizedBox(
+                                    width: Get.width,
+                                    height: Get.height,
+                                    child: webMobileController
+                                        .selectedApps.value.widget,
                                   );
-                                }
-                                return SizedBox(
-                                  width: Get.width,
-                                  height: Get.height,
-                                  child: webMobileController
-                                      .selectedApps.value.widget,
-                                );
-                              },
-                            ),
-                            // Container(
-                            //   color: Colors.blue,
-                            //   child: Text('Hello'),
-                            // ),
-                          ),
-                        ),
-                        Positioned.fill(
-                          child: Align(
-                            alignment: Alignment.centerRight,
-                            child: DecoratedBox(
-                              decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: Colors.grey.shade300,
+                                },
                               ),
-                              child: const Icon(
-                                Icons.home,
+                              // Container(
+                              //   color: Colors.blue,
+                              //   child: Text('Hello'),
+                              // ),
+                            ),
+                            Positioned(
+                              bottom: 30,
+                              left: 20,
+                              child: InkWell(
+                                onTap: () {
+                                  webMobileController.isShowGrid.value = true;
+                                },
+                                child: DecoratedBox(
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    color: Colors.grey.shade300,
+                                  ),
+                                  child: const Icon(
+                                    Icons.home,
+                                    size: 18,
+                                  ).paddingAll(4),
+                                ),
                               ),
                             ),
-                          ),
+                          ],
                         ),
-                      ],
+                      ),
                     )
                     // WebMobileDevice(),
                     ),
