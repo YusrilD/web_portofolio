@@ -41,23 +41,29 @@ class DashboardWeb extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           avatar(100),
                           16.0.spaceX,
                           Expanded(
-                            child: FittedBox(
-                              fit: BoxFit.scaleDown,
-                              child: Text(
-                                "Hi, I am Yusril Dewantara",
-                                style: GoogleFonts.poppins(
-                                  fontSize: 50,
-                                  fontWeight: FontWeight.w700,
+                            child: Align(
+                              alignment: Alignment.centerLeft,
+                              child: FittedBox(
+                                fit: BoxFit.scaleDown,
+                                child: Text(
+                                  "Hi, I am Yusril Dewantara",
+                                  textAlign: TextAlign.start,
+                                  style: GoogleFonts.poppins(
+                                    fontSize: 50,
+                                    fontWeight: FontWeight.w700,
+                                  ),
                                 ),
                               ),
                             ),
                           ),
                         ],
                       ),
+                      32.0.spaceY,
                       Text(
                         longGreeting,
                         style: GoogleFonts.lato(),

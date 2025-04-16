@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:model_viewer_plus/model_viewer_plus.dart';
+import 'package:web_portofolio/dashboard/dashboard_mobile.dart';
+import 'package:web_portofolio/source/spacer_extension.dart';
 
 class Setup extends StatefulWidget {
   @override
@@ -98,16 +100,17 @@ class _SetupState extends State<Setup> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         SizedBox(
-                          width: Get.width * 0.12,
-                          height: Get.width * 0.12,
+                          width: Get.width * 0.07,
+                          height: Get.width * 0.07,
                           child: const ModelViewer(
-                            src: "https://yusrildewantara.tech/assets/assets/fpv.glb",
+                            src: 'assets/images/fpv.glb'
+                            // "https://yusrildewantara.tech/assets/assets/fpv.glb",
                           ),
                         ),
                         Image.asset(
                           "assets/images/heading_indicator.png",
-                          width: Get.width * 0.12,
-                          height: Get.width * 0.12,
+                          width: Get.width * 0.07,
+                          height: Get.width * 0.07,
                         ),
                       ],
                     ),
@@ -449,6 +452,7 @@ class _SetupState extends State<Setup> {
                 ],
               ),
             ),
+            32.0.spaceY,
           ],
         ),
       ),
