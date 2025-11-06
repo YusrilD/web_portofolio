@@ -51,7 +51,7 @@ class DashboardWeb extends StatelessWidget {
                               child: FittedBox(
                                 fit: BoxFit.scaleDown,
                                 child: Text(
-                                  "Hi, I am Yusril Dewantara",
+                                  "Hi, I am John Doe",
                                   textAlign: TextAlign.start,
                                   style: GoogleFonts.poppins(
                                     fontSize: 50,
@@ -175,35 +175,68 @@ class DashboardWeb extends StatelessWidget {
                                   return SizedBox(
                                     width: Get.width,
                                     height: Get.height,
-                                    child: webMobileController
-                                        .selectedApps.value.widget,
+                                    child: Column(
+                                      children: [
+                                        Expanded(
+                                            child: webMobileController
+                                                .selectedApps.value.widget!),
+                                        ColoredBox(
+                                          color: Colors.black,
+                                          child: SizedBox(
+                                            width: Get.width,
+                                            height: 80,
+                                            child: Center(
+                                              child: InkWell(
+                                                onTap: () {
+                                                  webMobileController
+                                                      .isShowGrid.value = true;
+                                                },
+                                                child: DecoratedBox(
+                                                  decoration:
+                                                       BoxDecoration(
+                                                        shape: BoxShape.circle,
+                                                          color: Colors.white,
+                                                          boxShadow: [
+                                                        BoxShadow(
+                                                          spreadRadius: 16.0,
+                                                          blurRadius: 12,
+                                                            color:
+                                                                Colors.white.withAlpha(50)),
+                                                      ]),
+                                                  child: const Icon(
+                                                    Icons.home,
+                                                    size: 30,
+                                                  ).paddingAll(8),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
                                   );
                                 },
                               ),
-                              // Container(
-                              //   color: Colors.blue,
-                              //   child: Text('Hello'),
-                              // ),
                             ),
-                            Positioned(
-                              bottom: 30,
-                              left: 20,
-                              child: InkWell(
-                                onTap: () {
-                                  webMobileController.isShowGrid.value = true;
-                                },
-                                child: DecoratedBox(
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    color: Colors.grey.shade300,
-                                  ),
-                                  child: const Icon(
-                                    Icons.home,
-                                    size: 18,
-                                  ).paddingAll(4),
-                                ),
-                              ),
-                            ),
+                            // Positioned(
+                            //   bottom: 30,
+                            //   left: 20,
+                            //   child: InkWell(
+                            //     onTap: () {
+                            //       webMobileController.isShowGrid.value = true;
+                            //     },
+                            //     child: DecoratedBox(
+                            //       decoration: BoxDecoration(
+                            //         shape: BoxShape.circle,
+                            //         color: Colors.grey.shade300,
+                            //       ),
+                            //       child: const Icon(
+                            //         Icons.home,
+                            //         size: 18,
+                            //       ).paddingAll(4),
+                            //     ),
+                            //   ),
+                            // ),
                           ],
                         ),
                       ),

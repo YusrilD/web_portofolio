@@ -5,14 +5,16 @@ SizedBox avatar(double size) {
   return SizedBox(
     width: size,
     height: size,
-    child: const DecoratedBox(
-      decoration: BoxDecoration(
-        shape: BoxShape.circle,
-        image: DecorationImage(
-          image: ExactAssetImage(AppImages.profileImage),
-        ),
-      ),
-    ),
+    child: const Placeholder() 
+    
+    // const DecoratedBox(
+    //   decoration: BoxDecoration(
+    //     shape: BoxShape.circle,
+    //     image: DecorationImage(
+    //       image: ExactAssetImage(AppImages.profileImage),
+    //     ),
+    //   ),
+    // ),
   );
 }
 
