@@ -6,7 +6,7 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:web_portofolio/controller/social_media_controller.dart';
 import 'package:web_portofolio/dashboard/reusable.dart';
 import 'package:web_portofolio/dashboard/web_mobile_device.dart';
-import 'package:web_portofolio/model/social_media_model.dart';
+import 'package:web_portofolio/models/social_media_model.dart';
 import 'package:web_portofolio/source/buttons.dart';
 import 'package:web_portofolio/source/spacer_extension.dart';
 import 'package:web_portofolio/view/utils/app_images.dart';
