@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:web_portofolio/models/side_navigation_model.dart';
+import 'package:web_portofolio/models/image_path_name_model.dart';
 
 import '../sub_pages/adjustment.dart';
 import '../sub_pages/black_box.dart';
@@ -151,167 +151,28 @@ Container _middleAppBar(mediaHeight, mediaWidth) {
         shape: BoxShape.rectangle),
     child: Row(
       children: [
-        Container(
-          padding: const EdgeInsets.only(left: 3, bottom: 3, right: 3),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Expanded(
-                flex: 1,
-                child: Image.asset(
-                  "assets/images/gyroscope.png",
-                  width: 20,
-                  height: 20,
-                  color: Colors.amber,
+        for (ImagePathNameModel item in sensorItems)
+          Padding(
+            padding: const EdgeInsets.only(left: 3, bottom: 3, right: 3),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Expanded(
+                  flex: 1,
+                  child: Image.asset(
+                    item.imagePath,
+                    width: 20,
+                    height: 20,
+                    color: Colors.amber,
+                  ),
                 ),
-              ),
-              const Text(
-                "Gyro",
-                style: TextStyle(color: Colors.grey, fontSize: 12),
-              ),
-            ],
-          ).paddingAll(4),
-        ),
-        SizedBox(
-          width: 0.5,
-          height: mediaHeight,
-          child: const DecoratedBox(
-            decoration: BoxDecoration(color: Colors.grey),
+                Text(
+                  item.name,
+                  style: const TextStyle(color: Colors.grey, fontSize: 12),
+                ),
+              ],
+            ).paddingAll(4),
           ),
-        ),
-        Container(
-          padding: const EdgeInsets.only(left: 3, bottom: 3, right: 3),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Expanded(
-                flex: 1,
-                child: Image.asset(
-                  "assets/images/accel.png",
-                  width: 20,
-                  height: 20,
-                  color: Colors.amber,
-                ),
-              ),
-              const Text(
-                "Accel",
-                style: TextStyle(color: Colors.grey, fontSize: 12),
-              )
-            ],
-          ).paddingAll(4),
-        ),
-        SizedBox(
-          width: 0.5,
-          height: mediaHeight,
-          child: const DecoratedBox(
-            decoration: BoxDecoration(color: Colors.grey),
-          ),
-        ),
-        Container(
-          padding: const EdgeInsets.only(left: 3, bottom: 3, right: 3),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Expanded(
-                flex: 1,
-                child: Image.asset(
-                  "assets/images/north.png",
-                  width: 25.0,
-                  height: 25.0,
-                  color: Colors.amber,
-                ),
-              ),
-              const Text(
-                "Mag",
-                style: TextStyle(color: Colors.grey, fontSize: 12),
-              )
-            ],
-          ).paddingAll(4.0),
-        ),
-        SizedBox(
-          width: 0.5,
-          height: mediaHeight,
-          child: const DecoratedBox(
-            decoration: BoxDecoration(color: Colors.grey),
-          ),
-        ),
-        Container(
-          padding: const EdgeInsets.only(left: 3, bottom: 3, right: 3),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Expanded(
-                flex: 1,
-                child: Image.asset(
-                  "assets/images/barometer.png",
-                  width: 20.0,
-                  height: 20.0,
-                  color: Colors.amber,
-                ),
-              ),
-              const Text(
-                "Baro",
-                style: TextStyle(color: Colors.grey, fontSize: 12),
-              )
-            ],
-          ).paddingAll(4.0),
-        ),
-        SizedBox(
-          width: 0.5,
-          height: mediaHeight,
-          child: const DecoratedBox(
-            decoration: BoxDecoration(color: Colors.grey),
-          ),
-        ),
-        Container(
-          padding: const EdgeInsets.only(left: 3, bottom: 3, right: 3),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Expanded(
-                flex: 1,
-                child: Image.asset(
-                  "assets/images/satelite.png",
-                  width: 20.0,
-                  height: 20.0,
-                  color: Colors.amber,
-                ),
-              ),
-              const Text(
-                "GPS",
-                style: TextStyle(color: Colors.grey, fontSize: 12),
-              )
-            ],
-          ).paddingAll(4.0),
-        ),
-        SizedBox(
-          width: 0.5,
-          height: mediaHeight,
-          child: const DecoratedBox(
-            decoration: BoxDecoration(color: Colors.grey),
-          ),
-        ),
-        Container(
-          padding: const EdgeInsets.only(left: 3, bottom: 3, right: 3),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Expanded(
-                flex: 1,
-                child: Image.asset(
-                  "assets/images/sonar.png",
-                  width: 25.0,
-                  height: 25.0,
-                  color: Colors.amber,
-                ),
-              ),
-              const Text(
-                "Sonar",
-                style: TextStyle(color: Colors.grey, fontSize: 12),
-              ),
-            ],
-          ).paddingAll(4.0),
-        ),
       ],
     ),
   );
@@ -319,8 +180,6 @@ Container _middleAppBar(mediaHeight, mediaWidth) {
 
 class _DashboardState extends State<Dashboard> {
   int _selectedIndex = 0;
-  // toggleButton = 0;
-  // ValueNotifier<bool> _selectedIndex = ValueNotifier<bool>(false);
   ValueNotifier<bool> toggleButton = ValueNotifier<bool>(false);
 
   @override
@@ -364,122 +223,118 @@ class _DashboardState extends State<Dashboard> {
           children: [
             _upperMenu(mediaWidth, mediaHeight),
             Expanded(
-              child: Container(
-                // margin: const EdgeInsets.only(top: 10),
-                child: Row(
-                  children: [
-                    Column(
-                      children: [
-                        Expanded(
-                          child: LayoutBuilder(
-                            builder: (context, constraint) {
-                              return SingleChildScrollView(
-                                child: ConstrainedBox(
-                                  constraints: BoxConstraints(
-                                      minHeight: constraint.minHeight),
-                                  child: IntrinsicHeight(
-                                    child: ValueListenableBuilder(
-                                        valueListenable: toggleButton,
-                                        builder: (context, value, child) {
-                                          return NavigationRail(
-                                              minWidth: 40,
-                                              backgroundColor:
-                                                  Colors.grey.withAlpha(60),
-                                              selectedIndex: _selectedIndex,
-                                              onDestinationSelected:
-                                                  (int index) {
-                                                setState(() {
-                                                  _selectedIndex = index;
-                                                });
-                                              },
-                                              selectedIconTheme:
-                                                  const IconThemeData(
-                                                      color: Colors.grey,
-                                                      size: 100),
-                                              labelType: toggleButton.value
-                                                  ? NavigationRailLabelType.all
-                                                  : NavigationRailLabelType
-                                                      .none,
-                                              destinations: List.generate(
-                                                  navItems.length, (index) {
-                                                NavItem item = navItems[index];
-                                                Widget imageWidget = ImageIcon(
-                                                  AssetImage(item.imagePath),
-                                                  size: 20,
-                                                  color: Colors.grey,
-                                                );
-                                                return NavigationRailDestination(
-                                                  icon: imageWidget,
-                                                  selectedIcon: Container(
-                                                    width: toggleButton.value
-                                                        ? 100
-                                                        : 40,
-                                                    height: 40,
-                                                    padding:
-                                                        const EdgeInsets.all(
-                                                            10),
-                                                    decoration:
-                                                        const BoxDecoration(
-                                                      color: Colors.amber,
-                                                    ),
-                                                    child: imageWidget,
+              child: Row(
+                children: [
+                  Column(
+                    children: [
+                      Expanded(
+                        child: LayoutBuilder(
+                          builder: (context, constraint) {
+                            return SingleChildScrollView(
+                              child: ConstrainedBox(
+                                constraints: BoxConstraints(
+                                    minHeight: constraint.minHeight),
+                                child: IntrinsicHeight(
+                                  child: ValueListenableBuilder(
+                                      valueListenable: toggleButton,
+                                      builder: (context, value, child) {
+                                        var labelType = toggleButton.value
+                                            ? NavigationRailLabelType.all
+                                            : NavigationRailLabelType.none;
+                                        double iconWidth =
+                                            toggleButton.value ? 100 : 40;
+                                        return NavigationRail(
+                                            minWidth: 40,
+                                            backgroundColor:
+                                                Colors.grey.withAlpha(60),
+                                            selectedIndex: _selectedIndex,
+                                            onDestinationSelected: (int index) {
+                                              setState(() {
+                                                _selectedIndex = index;
+                                              });
+                                            },
+                                            selectedIconTheme:
+                                                const IconThemeData(
+                                                    color: Colors.grey,
+                                                    size: 100),
+                                            labelType: labelType,
+                                            destinations: List.generate(
+                                                navItems.length, (index) {
+                                              ImagePathNameModel item =
+                                                  navItems[index];
+                                              Widget imageWidget = ImageIcon(
+                                                AssetImage(item.imagePath),
+                                                size: 20,
+                                                color: Colors.grey,
+                                              );
+                                              return NavigationRailDestination(
+                                                icon: imageWidget,
+                                                selectedIcon: Container(
+                                                  width: iconWidth,
+                                                  height: 40,
+                                                  padding:
+                                                      const EdgeInsets.all(10),
+                                                  decoration:
+                                                      const BoxDecoration(
+                                                    color: Colors.amber,
                                                   ),
-                                                  label: Padding(
-                                                    padding:
-                                                        const EdgeInsets.only(
-                                                            top: 3),
-                                                    child: Text(
-                                                      item.name,
-                                                      style: const TextStyle(
-                                                          fontSize: 10,
-                                                          color: Colors.grey),
-                                                    ),
+                                                  child: imageWidget,
+                                                ),
+                                                label: Padding(
+                                                  padding:
+                                                      const EdgeInsets.only(
+                                                          top: 3),
+                                                  child: Text(
+                                                    item.name,
+                                                    style: const TextStyle(
+                                                        fontSize: 10,
+                                                        color: Colors.grey),
                                                   ),
-                                                );
-                                              }));
-                                        }),
-                                  ),
+                                                ),
+                                              );
+                                            }));
+                                      }),
                                 ),
-                              );
-                            },
-                          ),
+                              ),
+                            );
+                          },
                         ),
-                        ValueListenableBuilder(
-                            valueListenable: toggleButton,
-                            builder: (context, value, child) {
-                              return Container(
-                                width: toggleButton.value ? 115 : 40,
-                                height: 40,
-                                decoration: BoxDecoration(
-                                  shape: BoxShape.rectangle,
-                                  color: Colors.grey.withAlpha(70),
-                                ),
-                                child: IconButton(
-                                  onPressed: () {
-                                    toggleButton.value = !toggleButton.value;
-                                  },
-                                  icon: const Icon(
-                                    Icons.menu,
-                                    color: Colors.grey,
-                                  ),
-                                ),
-                              );
-                            }),
-                      ],
-                    ),
-                    Expanded(
-                      child: PageView.builder(
-                        scrollDirection: Axis.vertical,
-                        physics: const NeverScrollableScrollPhysics(),
-                        itemBuilder: (context, index) {
-                          return Scaffold(
-                            body: Center(child: listPage[_selectedIndex]),
-                          );
-                        },
                       ),
-                    )
-                  ],
-                ),
+                      ValueListenableBuilder(
+                          valueListenable: toggleButton,
+                          builder: (context, value, child) {
+                            return Container(
+                              width: toggleButton.value ? 115 : 40,
+                              height: 40,
+                              decoration: BoxDecoration(
+                                shape: BoxShape.rectangle,
+                                color: Colors.grey.withAlpha(70),
+                              ),
+                              child: IconButton(
+                                onPressed: () {
+                                  toggleButton.value = !toggleButton.value;
+                                },
+                                icon: const Icon(
+                                  Icons.menu,
+                                  color: Colors.grey,
+                                ),
+                              ),
+                            );
+                          }),
+                    ],
+                  ),
+                  Expanded(
+                    child: PageView.builder(
+                      scrollDirection: Axis.vertical,
+                      physics: const NeverScrollableScrollPhysics(),
+                      itemBuilder: (context, index) {
+                        return Scaffold(
+                          body: Center(child: listPage[_selectedIndex]),
+                        );
+                      },
+                    ),
+                  )
+                ],
               ),
             ),
           ],
