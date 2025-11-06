@@ -32,276 +32,288 @@ Widget _upperMenu(var mediaWidth, var mediaHeight) {
   return Row(
     mainAxisAlignment: MainAxisAlignment.spaceBetween,
     children: [
-      Expanded(
-        flex: 1,
-        child: Container(
-          height: mediaHeight / 13,
-          decoration:
-              BoxDecoration(border: Border.all(color: Colors.grey, width: 0.5)),
-          child: Column(
-            children: [
-              Container(
-                color: Colors.grey,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Image.asset(
-                      "assets/images/battery.png",
-                      scale: 2,
-                      color: Colors.black,
-                    ),
-                    const Text(
-                      "0.4v",
-                      style: TextStyle(fontSize: 12),
-                    )
-                  ],
-                ),
-              ),
-              Expanded(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    const Padding(
-                      padding: EdgeInsets.all(1),
-                      child: Icon(
-                        Icons.warning,
-                        color: Colors.grey,
-                        size: 18,
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(1),
-                      child: Image.asset(
-                        "assets/images/parachute.png",
-                        scale: 3,
-                        color: Colors.grey,
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(1),
-                      child: Image.asset(
-                        "assets/images/link.png",
-                        scale: 3,
-                        color: Colors.yellow,
-                      ),
-                    ),
-                  ],
-                ),
-              )
-            ],
-          ),
-        ),
-      ),
-      Container(
-        margin: const EdgeInsets.only(left: 3),
-        height: mediaHeight / 13,
-        decoration: BoxDecoration(
-            border: Border.all(color: Colors.grey, width: 0.5),
-            shape: BoxShape.rectangle),
-        child: Row(
+      _leftAppBar(mediaHeight),
+      _middleAppBar(mediaHeight, mediaWidth),
+      _rightAppBar(mediaHeight, mediaWidth),
+    ],
+  );
+}
+
+Expanded _leftAppBar(mediaHeight) {
+  return Expanded(
+      flex: 1,
+      child: Container(
+        height: mediaHeight * 0.05,
+        decoration:
+            BoxDecoration(border: Border.all(color: Colors.grey, width: 0.5)),
+        child: Column(
           children: [
             Container(
-              padding: const EdgeInsets.only(left: 3, bottom: 3, right: 3),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+              color: Colors.grey,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Expanded(
-                    flex: 1,
-                    child: Image.asset(
-                      "assets/images/gyroscope.png",
-                      width: mediaWidth * 0.05,
-                      height: mediaWidth * 0.05,
-                      color: Colors.amber,
-                    ),
+                  Image.asset(
+                    "assets/images/battery.png",
+                    scale: 2,
+                    color: Colors.black,
                   ),
                   const Text(
-                    "Gyro",
-                    style: TextStyle(color: Colors.grey, fontSize: 12),
-                  ),
-                ],
-              ),
-            ),
-            SizedBox(
-              width: 0.5,
-              height: mediaHeight,
-              child: const DecoratedBox(
-                decoration: BoxDecoration(color: Colors.grey),
-              ),
-            ),
-            Container(
-              padding: const EdgeInsets.only(left: 3, bottom: 3, right: 3),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Expanded(
-                    flex: 1,
-                    child: Image.asset(
-                      "assets/images/accel.png",
-                      width: mediaWidth * 0.05,
-                      height: mediaWidth * 0.05,
-                      color: Colors.amber,
-                    ),
-                  ),
-                  const Text(
-                    "Accel",
-                    style: TextStyle(color: Colors.grey, fontSize: 12),
+                    "0.4v",
+                    style: TextStyle(fontSize: 12),
                   )
                 ],
               ),
             ),
-            SizedBox(
-              width: 0.5,
-              height: mediaHeight,
-              child: const DecoratedBox(
-                decoration: BoxDecoration(color: Colors.grey),
-              ),
-            ),
-            Container(
-              padding: const EdgeInsets.only(left: 3, bottom: 3, right: 3),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+            Expanded(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Expanded(
-                    flex: 1,
-                    child: Image.asset(
-                      "assets/images/north.png",
-                      width: mediaWidth * 0.06,
-                      height: mediaWidth * 0.06,
-                      color: Colors.amber,
+                  const Padding(
+                    padding: EdgeInsets.all(1),
+                    child: Icon(
+                      Icons.warning,
+                      color: Colors.grey,
+                      size: 18,
                     ),
                   ),
-                  const Text(
-                    "Mag",
-                    style: TextStyle(color: Colors.grey, fontSize: 12),
-                  )
-                ],
-              ),
-            ),
-            SizedBox(
-              width: 0.5,
-              height: mediaHeight,
-              child: const DecoratedBox(
-                decoration: BoxDecoration(color: Colors.grey),
-              ),
-            ),
-            Container(
-              padding: const EdgeInsets.only(left: 3, bottom: 3, right: 3),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Expanded(
-                    flex: 1,
+                  Padding(
+                    padding: const EdgeInsets.all(1),
                     child: Image.asset(
-                      "assets/images/barometer.png",
-                      width: mediaWidth * 0.05,
-                      height: mediaWidth * 0.05,
-                      color: Colors.amber,
+                      "assets/images/parachute.png",
+                      scale: 3,
+                      color: Colors.grey,
                     ),
                   ),
-                  const Text(
-                    "Baro",
-                    style: TextStyle(color: Colors.grey, fontSize: 12),
-                  )
-                ],
-              ),
-            ),
-            SizedBox(
-              width: 0.5,
-              height: mediaHeight,
-              child: const DecoratedBox(
-                decoration: BoxDecoration(color: Colors.grey),
-              ),
-            ),
-            Container(
-              padding: const EdgeInsets.only(left: 3, bottom: 3, right: 3),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Expanded(
-                    flex: 1,
+                  Padding(
+                    padding: const EdgeInsets.all(1),
                     child: Image.asset(
-                      "assets/images/satellite.png",
-                      width: mediaWidth * 0.05,
-                      height: mediaWidth * 0.05,
-                      color: Colors.amber,
+                      "assets/images/link.png",
+                      scale: 3,
+                      color: Colors.yellow,
                     ),
-                  ),
-                  const Text(
-                    "GPS",
-                    style: TextStyle(color: Colors.grey, fontSize: 12),
-                  )
-                ],
-              ),
-            ),
-            SizedBox(
-              width: 0.5,
-              height: mediaHeight,
-              child: const DecoratedBox(
-                decoration: BoxDecoration(color: Colors.grey),
-              ),
-            ),
-            Container(
-              padding: const EdgeInsets.only(left: 3, bottom: 3, right: 3),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Expanded(
-                    flex: 1,
-                    child: Image.asset(
-                      "assets/images/sonar.png",
-                      width: mediaWidth * 0.05,
-                      height: mediaWidth * 0.05,
-                      color: Colors.amber,
-                    ),
-                  ),
-                  const Text(
-                    "Sonar",
-                    style: TextStyle(color: Colors.grey, fontSize: 12),
                   ),
                 ],
               ),
-            ),
+            )
           ],
         ),
       ),
-      Expanded(
-        flex: 1,
-        child: Container(
-          height: mediaHeight / 13,
-          margin: const EdgeInsets.only(left: 3),
-          decoration:
-              BoxDecoration(border: Border.all(color: Colors.grey, width: 0.5)),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              Container(
-                width: mediaWidth,
-                padding: const EdgeInsets.all(3),
-                color: Colors.grey,
-                child: const Column(
-                  children: [
-                    Text(
-                      "CPU load",
-                      style: TextStyle(fontSize: 10),
-                    ),
-                    Text("5%", style: TextStyle(fontSize: 10))
-                  ],
-                ),
+    );
+}
+
+Expanded _rightAppBar(mediaHeight, mediaWidth) {
+  return Expanded(
+      flex: 1,
+      child: Container(
+        height: mediaHeight * 0.05,
+        margin: const EdgeInsets.only(left: 3),
+        decoration:
+            BoxDecoration(border: Border.all(color: Colors.grey, width: 0.5)),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            Container(
+              width: mediaWidth,
+              padding: const EdgeInsets.all(3),
+              color: Colors.grey,
+              child: const Column(
+                children: [
+                  Text(
+                    "CPU load",
+                    style: TextStyle(fontSize: 10),
+                  ),
+                  Text("5%", style: TextStyle(fontSize: 10))
+                ],
               ),
-              const Padding(
-                padding: EdgeInsets.only(top: 3),
-                child: Text(
-                  "2.0 MB",
-                  style: TextStyle(fontSize: 10, color: Colors.grey),
-                ),
-              )
-            ],
-          ),
+            ),
+            const Padding(
+              padding: EdgeInsets.only(top: 3),
+              child: Text(
+                "2.0 MB",
+                style: TextStyle(fontSize: 10, color: Colors.grey),
+              ),
+            )
+          ],
         ),
       ),
-    ],
-  );
+    );
+}
+
+Container _middleAppBar(mediaHeight, mediaWidth) {
+  return Container(
+      margin: const EdgeInsets.only(left: 3),
+      height: mediaHeight * 0.05,
+      decoration: BoxDecoration(
+          border: Border.all(color: Colors.grey, width: 0.5),
+          shape: BoxShape.rectangle),
+      child: Row(
+        children: [
+          Container(
+            padding: const EdgeInsets.only(left: 3, bottom: 3, right: 3),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Expanded(
+                  flex: 1,
+                  child: Image.asset(
+                    "assets/images/gyroscope.png",
+                    width: 20,
+                    height: 20,
+                    color: Colors.amber,
+                  ),
+                ),
+                const Text(
+                  "Gyro",
+                  style: TextStyle(color: Colors.grey, fontSize: 12),
+                ),
+              ],
+            ).paddingAll(4),
+          ),
+          SizedBox(
+            width: 0.5,
+            height: mediaHeight,
+            child: const DecoratedBox(
+              decoration: BoxDecoration(color: Colors.grey),
+            ),
+          ),
+          Container(
+            padding: const EdgeInsets.only(left: 3, bottom: 3, right: 3),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Expanded(
+                  flex: 1,
+                  child: Image.asset(
+                    "assets/images/accel.png",
+                    width: 20,
+                    height: 20,
+                    color: Colors.amber,
+                  ),
+                ),
+                const Text(
+                  "Accel",
+                  style: TextStyle(color: Colors.grey, fontSize: 12),
+                )
+              ],
+            ).paddingAll(4),
+          ),
+          SizedBox(
+            width: 0.5,
+            height: mediaHeight,
+            child: const DecoratedBox(
+              decoration: BoxDecoration(color: Colors.grey),
+            ),
+          ),
+          Container(
+            padding: const EdgeInsets.only(left: 3, bottom: 3, right: 3),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Expanded(
+                  flex: 1,
+                  child: Image.asset(
+                    "assets/images/north.png",
+                    width: 25.0,
+                    height: 25.0,
+                    color: Colors.amber,
+                  ),
+                ),
+                const Text(
+                  "Mag",
+                  style: TextStyle(color: Colors.grey, fontSize: 12),
+                )
+              ],
+            ).paddingAll(4.0),
+          ),
+          SizedBox(
+            width: 0.5,
+            height: mediaHeight,
+            child: const DecoratedBox(
+              decoration: BoxDecoration(color: Colors.grey),
+            ),
+          ),
+          Container(
+            padding: const EdgeInsets.only(left: 3, bottom: 3, right: 3),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Expanded(
+                  flex: 1,
+                  child: Image.asset(
+                    "assets/images/barometer.png",
+                    width: 20.0,
+                    height: 20.0,
+                    color: Colors.amber,
+                  ),
+                ),
+                const Text(
+                  "Baro",
+                  style: TextStyle(color: Colors.grey, fontSize: 12),
+                )
+              ],
+            ).paddingAll(4.0),
+          ),
+          SizedBox(
+            width: 0.5,
+            height: mediaHeight,
+            child: const DecoratedBox(
+              decoration: BoxDecoration(color: Colors.grey),
+            ),
+          ),
+          Container(
+            padding: const EdgeInsets.only(left: 3, bottom: 3, right: 3),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Expanded(
+                  flex: 1,
+                  child: Image.asset(
+                    "assets/images/satellite.png",
+                    width: 20.0,
+                    height: 20.0,
+                    color: Colors.amber,
+                  ),
+                ),
+                const Text(
+                  "GPS",
+                  style: TextStyle(color: Colors.grey, fontSize: 12),
+                )
+              ],
+            ).paddingAll(4.0),
+          ),
+          SizedBox(
+            width: 0.5,
+            height: mediaHeight,
+            child: const DecoratedBox(
+              decoration: BoxDecoration(color: Colors.grey),
+            ),
+          ),
+          Container(
+            padding: const EdgeInsets.only(left: 3, bottom: 3, right: 3),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Expanded(
+                  flex: 1,
+                  child: Image.asset(
+                    "assets/images/sonar.png",
+                    width: 25.0,
+                    height: 25.0,
+                    color: Colors.amber,
+                  ),
+                ),
+                const Text(
+                  "Sonar",
+                  style: TextStyle(color: Colors.grey, fontSize: 12),
+                ),
+              ],
+            ).paddingAll(4.0),
+          ),
+        ],
+      ),
+    );
 }
 
 class _DashboardState extends State<Dashboard> {
@@ -349,7 +361,7 @@ class _DashboardState extends State<Dashboard> {
             _upperMenu(mediaWidth, mediaHeight),
             Expanded(
               child: Container(
-                margin: const EdgeInsets.only(top: 10),
+                // margin: const EdgeInsets.only(top: 10),
                 child: Row(
                   children: [
                     Column(
