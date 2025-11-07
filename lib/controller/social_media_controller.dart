@@ -4,7 +4,7 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:web_portofolio/source/image.dart';
 import 'package:web_portofolio/view/utils/app_images.dart';
 
-import '../model/social_media_model.dart';
+import '../models/social_media_model.dart';
 import '../view/utils/widget/custom_dialog.dart';
 
 class SocialMediaController extends GetxController {
